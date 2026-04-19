@@ -29,8 +29,15 @@ docker run -d `
 
 ## RestFS 在SpringBoot中的 整合
 ---
-
-所有中间件都可以参照这个整合模式：
+**引入依赖**
+在 `build.gradle` 中添加以下代码 ：
+``` Groovy
+dependencies {
+    // AWS S3 SDK for RustFS storage
+    implementation 'software.amazon.awssdk:s3:2.25.27'
+}
+```
+所有中间件都可以参照这个**整合模式**：
 - 配置绑定
 	- 配置属性：application.yml
 	- 配置属性类：StorageConfigProperties（interview.guide.common.config）
