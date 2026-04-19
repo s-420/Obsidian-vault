@@ -37,9 +37,9 @@ docker run -d `
 	- S3 客户端配置：S3Config（interview.guide.common.config）
 - 内部服务封装
 	- 服务类设计：FileStorageService（interview.guide.infrastructure.file）
-- 外部业务调用
+- 外部业务调用（FileStorageService 中的方法，通过注入FileStorageService调用方法）
 	- 文件上传
 	- 文件下载
 	- 文件删除
 	- 确保存储桶存在
-	- 
+
