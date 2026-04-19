@@ -1,3 +1,4 @@
+[[2.本地搭建 PostgreSQL + PGvector 向量数据库.pdf]]
 样例：
 ``` plain
 docker run -d \
