@@ -24,4 +24,15 @@ docker run -d \
 - 挂载数据卷（Volume），格式为 `宿主机绝对路劲:容器内路径`
 - 用于 **数据持久化**
 - 容器时一个“临时“的环境，删除容器会导致内部数据丢失。通过 映射来实现持久化，数据库产生的所有数据会实时写入到 指定的路径 **磁盘中** 。即使删除了容器，下次挂载这个目录（只要你指向的是**同一个宿主机路径**（即 `D:/Code/docker/postgresql/data`），Docker 就会自动加载该目录中已有的数据库文件，恢复所有数据和配置。）数据依然存在。
-6.`pgvector/pgvector:pg17`:指定使用的镜像名和标签（Tag)
+6.`pgvector/pgvector:pg17`:指定使用的镜像名和标签（Tag) (仓库名/镜像名:标签)
+
+本机：
+~~~ text 
+docker run -d \
+  --name my_pgvector \
+  -p 5432:5432 \
+  -e POSTGRES_PASSWORD=123456 \
+  -v D:/Code/docker/postgresql/data:/var/lib/postgresql/data \
+  pgvector/pgvector:pg17
+
+~~~
