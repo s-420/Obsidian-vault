@@ -22,3 +22,20 @@ Groovy是运行在JVM上的脚本语言，是居于Java扩展的动态语言
 
 具体实现的区别：
 ![[{533CE39A-31BE-43B0-A9A8-1653D6B9CC84}.png]]
+
+## Gradle 的实现（Gradle Wrapper）
+---
+Grandle 的结构
+``` text
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradlew
+└── gradlew.bat
+```
+每个文件含义如下：
+- grandle-wrapper.jar：包含了Gradle运行时的逻辑代码
+- grandle-wrapper.properties：定义了Gradle的版本号和Gradle运行时的行为属性
+- gradlew：Linux平台下，用于执行Gradle命令的包装器脚本
+- gradlew.bat：Linux平台下，用于执行Gradle命令的包装器脚本
