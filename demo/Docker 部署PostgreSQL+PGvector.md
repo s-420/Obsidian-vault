@@ -1,3 +1,4 @@
+样例：
 ``` plain
 docker run -d \
 	--name my_pgvector \
@@ -7,3 +8,5 @@ docker run -d \
 	pgvector/pgvector:pg17
 ```
 
+命令拆分解释：
+1.`docker run -d`：
