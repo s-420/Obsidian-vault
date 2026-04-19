@@ -266,14 +266,15 @@ redis.call("set", value_key, current_val - permits)
 
 ### 健康度评分
 
-| 维度 | 评分 | 说明 |
-|------|------|------|
-| 代码规范 | ⭐⭐⭐⭐⭐ | 严格遵循 AGENTS.md：2空格、record做DTO、无通配符导入、BusinessException统一 |
-| 架构分层 | ⭐⭐⭐⭐ | common/infrastructure/modules 三层清晰，边界偶有模糊 |
-| 测试覆盖 | ⭐⭐⭐ | 提及 JUnit 5 + Mockito + AssertJ，但 src/test 下测试文件较少 |
-| 文档质量 | ⭐⭐⭐⭐⭐ | README 极其详细，FAQ 覆盖所有新手坑 |
-| 技术选型 | ⭐⭐⭐⭐ | 务实，不过度设计；Spring AI 2.0 M4 存在升级风险 |
-| 运维友好度 | ⭐⭐⭐⭐⭐ | Docker Compose 一键部署、.env 配置、6 服务编排 |
+| 维度    | 评分    | 说明                                                       |
+| ----- | ----- | -------------------------------------------------------- |
+| 代码规范  | ⭐⭐⭐⭐⭐ | 严格遵循 AGENTS.md：2空格、record做DTO、无通配符导入、BusinessException统一 |
+| 架构分层  | ⭐⭐⭐⭐  | common/infrastructure/modules 三层清晰，边界偶有模糊                |
+| 测试覆盖  | ⭐⭐⭐   | 提及 JUnit 5 + Mockito + AssertJ，但 src/test 下测试文件较少        |
+| 文档质量  | ⭐⭐⭐⭐⭐ | README 极其详细，FAQ 覆盖所有新手坑                                  |
+| 技术选型  | ⭐⭐⭐⭐  | 务实，不过度设计；Spring AI 2.0 M4 存在升级风险                         |
+| 运维友好度 | ⭐⭐⭐⭐⭐ | Docker Compose 一键部署、.env 配置、6 服务编排                       |
+|       |       |                                                          |
 
 ### 值得肯定的工程细节
 
