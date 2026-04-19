@@ -29,6 +29,7 @@ docker run -d `
 
 ## RestFS 在SpringBoot中的 整合
 ---
+
 所有中间件都可以参照这个整合模式：
 - 配置绑定
 	- 配置属性：application.yml
