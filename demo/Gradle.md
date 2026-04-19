@@ -40,33 +40,53 @@ Grandle 的结构
 - gradlew：Linux平台下，用于执行Gradle命令的包装器脚本
 - gradlew.bat：Linux平台下，用于执行Gradle命令的包装器脚本
 
-## Gradle 引入依赖
-使用 Version Catalog（版本目录） 方式管理依赖。这是现代 Gradle 推荐的最佳实践。
+---
+## Gradle 项目依赖管理指南
 
-项目依赖管理结构
-├── gradle/libs.versions.toml   # ✅ 集中定义版本号和依赖别名
-└── app/build.gradle           # 实际引用
-引入依赖的方法
-1. 添加新的依赖版本（在 gradle/libs.versions.toml 中）
+本项目使用 Version Catalog (版本目录) 方式管理依赖。这是现代 Gradle 推荐的最佳实践，能够实现依赖的集中管理和版本复用。
+
+### 1. 项目依赖管理结构
+
+```text
+├── gradle/
+│   └── libs.versions.toml   # ✅ 集中定义版本号和依赖别名
+└── app/
+    └── build.gradle         # 实际引用依赖的地方
+```
+### 2. 引入依赖的步骤
+
+### 第一步：在 `gradle/libs.versions.toml` 中定义
+
+编辑配置文件，在相应的部分添加版本号和库别名：
+
+```toml
 [versions]
 # 新增版本号
 my-library = "1.2.3"
-[versions]
 spring-boot = "4.0.1"
 springAi = "2.0.0-M4"
- # ... 其他已有版本
+
 [libraries]
-# 新增依赖（引用已定义的版本）
+# 新增依赖（引用上面定义的 version.ref）
 my-library = { module = "com.example:my-library", version.ref = "my-library" }
-2. 在 app/build.gradle 中使用
+```
+
+### 第二步：在 `app/build.gradle` 中引用
+
+在 `dependencies` 闭包中添加引用：
+
+```gradle
 dependencies {
-    // 方式一：通过 libs 引用（推荐）
+    // 方式一：通过 libs 类型安全引用（推荐）
+    // 别名中的中划线 "-" 在代码中会变成点 "."
     implementation libs.my.library
     
-    // 方式二：直接写坐标
+    // 方式二：通过版本目录获取版本号（适用于坐标拼接）
+    implementation "org.springframework.ai:spring-ai-starter-model-openai:${libs.versions.springAi.get()}"
+
+    // 方式三：传统直接写坐标（不推荐，难维护）
     implementation 'com.example:my-library:1.2.3'
 }
-现有依赖引用示例
-// 在 build.gradle 中
-implementation libs.tika.core          // 引用 libs.versions.toml 中的定义
-implementation "org.springframework.ai:spring-ai-starter-model-openai:${libs.versions.springAi.get()}"
+```
+
+---

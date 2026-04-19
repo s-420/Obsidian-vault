@@ -29,7 +29,7 @@ docker run -d `
 
 ## RestFS 在SpringBoot中的 整合
 ---
-**引入依赖**
+**引入依赖**（依赖注入的方法 [[Gradle#Gradle 项目依赖管理指南]] ）
 在 `build.gradle` 中添加以下代码 ：
 ``` Groovy
 dependencies {
