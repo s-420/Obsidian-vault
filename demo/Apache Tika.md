@@ -84,7 +84,7 @@ private String parseContent(InputStream inputStream) throws IOException, TikaExc
 | 组件             | 作用                                         | 理解                |
 | -------------- | ------------------------------------------ | ----------------- |
 | AutoDectParser | 结合 Detect 检测出的媒体类型（MIME），并委派给具体的Parser执行解析 | 根据文件类型，自动生成对应的解析器 |
-| ContentHandler |                                            |                   |
+| ContentHandler | 以SAX（simple api for xml：像流水线一样）            |                   |
 
 ~~~ plain
 1. 读取文件流
