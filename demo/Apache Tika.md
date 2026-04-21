@@ -141,3 +141,10 @@ context解析：
 └─────────────┘
 
 ~~~
+
+## NoOpEmbeddedDocumentExtractor
+---
+> context.set(
+    EmbeddedDocumentExtractor.class, new NoOpEmbeddedDocumentExtractor());  
+
+解决嵌入资源污染的核心类
