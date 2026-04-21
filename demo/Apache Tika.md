@@ -9,7 +9,7 @@ ResumeUploadService::uploadAndAnalyze
 ---
 Tika本身并不直接处理每一种文件，而是充当一个“中间商”，封装了许多底层库（处理PDF的PDFBox，处理Office的POI）
 ### Tika 处理流程：
-1. Detect（识别类型）
+1. Detect（识别类型）：
 2. Parse（选择并解析）
 3. Handle（输出内容）
 
