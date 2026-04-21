@@ -9,7 +9,7 @@ ResumeUploadService::uploadAndAnalyze
 ---
 Tika本身并不直接处理每一种文件，而是充当一个“中间商”，封装了许多底层库（处理PDF的PDFBox，处理Office的POI）
 ### Tika 处理流程：
-1. Detect（识别类型）：
+1. Detect（识别类型）
 2. Parse（选择并解析）
 3. Handle（输出内容）
 
@@ -81,6 +81,11 @@ private String parseContent(InputStream inputStream) throws IOException, TikaExc
 }
 ~~~
 
+| 组件             | 作用                                         | 理解                |
+| -------------- | ------------------------------------------ | ----------------- |
+| AutoDectParser | 结合 Detect 检测出的媒体类型（MIME），并委派给具体的Parser执行解析 | 根据文件类型，自动生成对应的解析器 |
+| ContentHandler |                                            |                   |
+
 ~~~ plain
 1. 读取文件流
    InputStream inputStream = file.getInputStream();
@@ -97,4 +102,29 @@ private String parseContent(InputStream inputStream) throws IOException, TikaExc
 
 5. 获取文本
    String text = handler.toString();
+   
+   解析前：
+┌─────────────┐
+│ inputStream │  ← 文件输入流（只读）
+├─────────────┤
+│   handler   │  ← 空的处理器
+├─────────────┤
+│  metadata   │  ← 空的元数据
+├─────────────┤
+│   context   │  ← 解析配置（只读）
+└─────────────┘
+         ↓
+    parser.parse()
+         ↓
+解析后：
+┌─────────────┐
+│ inputStream │  ← 不变
+├─────────────┤
+│   handler   │  ← 填充了文本内容 ✅
+├─────────────┤
+│  metadata   │  ← 填充了文件信息 ✅
+├─────────────┤
+│   context   │  ← 不变
+└─────────────┘
+
 ~~~
