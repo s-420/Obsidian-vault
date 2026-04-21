@@ -195,3 +195,21 @@ Tika在解析过程中会调用 EmbeddedDocumentExtractor 接口：
 1. shouldParseEmbedded()-询问是否要解析 嵌入资源（NoOP 实现，永远返回false，仅在日志中输出，文件名
 2. parseEmbedded()-实际处理嵌入资源 （NoOp实现，不执行任何操作，因为shouldParseEmbedded() 永远返回false）
 ![[{54F12C3B-1365-4547-8ED7-BED5D34FD0CA}.png]]
+
+## ContentHandler 的选择
+~~~ java 
+// 1. BodyContentHandler - 只提取正文（推荐用于简历） 
+BodyContentHandler bodyHandler = new BodyContentHandler(maxLength);
+ 
+// 2. ToXMLContentHandler - 输出 XML 格式（保留结构） 
+ToXMLContentHandler xmlHandler = new ToXMLContentHandler(); 
+
+// 3. WriteOutContentHandler - 直接写入 
+Writer WriteOutContentHandler writerHandler = new WriteOutContentHandler(writer);
+
+// 4. 默认 ContentHandler - 提取所有内容（包括元数据） 
+ContentHandler defaultHandler = new DefaultHandler();
+~~~
+
+![[{57D3BE79-5139-4686-9CE2-147463A39869}.png]]
+
