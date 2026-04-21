@@ -80,3 +80,21 @@ private String parseContent(InputStream inputStream) throws IOException, TikaExc
     return handler.toString();  
 }
 ~~~
+
+~~~ plain
+1. 读取文件流
+   InputStream inputStream = file.getInputStream();
+
+2. 创建处理器（筛子）
+   BodyContentHandler handler = new BodyContentHandler(MAX_TEXT_LENGTH);
+
+3. 配置解析器
+   - 禁用图片提取
+   - 按位置排序文本
+
+4. 执行解析
+   parser.parse(inputStream, handler, metadata, context);
+
+5. 获取文本
+   String text = handler.toString();
+~~~
