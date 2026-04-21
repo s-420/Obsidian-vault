@@ -86,8 +86,19 @@ private String parseContent(InputStream inputStream) throws IOException, TikaExc
 | AutoDectParser | 结合 Detect 检测出的媒体类型（MIME），并委派给具体的Parser执行解析                                                 | 根据文件类型，自动生成对应的解析器 |
 | ContentHandler | 以SAX（simple api for xml：解析文件时像流水线一样，读取一个文件就抛出一个“事务”，处理大文件时，保持内存占用平缓）并决定输出形式（纯文本/XHTML/限长等） | 承载内容，并决定内容形式      |
 | Metadata       | 存放解析过程中提取的元信息（Content-Type、作者、标题、创建时间、页数等）                                                 | 存放元信息，就像照片的属性     |
-| ParseContext   | 像解析器传递上下文对象与配置                                                                             |                   |
+| ParseContext   | 像解析器传递上下文对象与配置(例如 pdf解析策略、OCR配置、EmbeddedDocumentExtractor 等)                               | 传递 解析器对象 和 配置     |
 
+context解析：
+~~~ plain
+	context 就像一个"工具箱"
+    ↓
+	往工具箱里放工具：
+	    - 扳手（Parser）
+	    - 螺丝刀（EmbeddedDocumentExtractor）
+	    - 锤子（PDFParserConfig）
+~~~
+
+运作流程：
 ~~~ plain
 1. 读取文件流
    InputStream inputStream = file.getInputStream();
