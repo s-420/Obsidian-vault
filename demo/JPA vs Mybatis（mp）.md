@@ -133,5 +133,33 @@ public Optional<ResumeAnalysisEntity> getLatestAnalysis(Long resumeId) {
     return Optional.ofNullable(analysisRepository.findFirstByResumeIdOrderByAnalyzedAtDesc(resumeId));  
 }
 
-
+/**  
+ * 将实体转换为DTO  
+ */public ResumeAnalysisResponse entityToDTO(ResumeAnalysisEntity entity) {  
+    try {  
+        List<String> strengths = objectMapper.readValue(  
+            entity.getStrengthsJson() != null ? entity.getStrengthsJson() : "[]",  
+                new TypeReference<>() {  
+                }  
+        );  
+          
+        List<ResumeAnalysisResponse.Suggestion> suggestions = objectMapper.readValue(  
+            entity.getSuggestionsJson() != null ? entity.getSuggestionsJson() : "[]",  
+                new TypeReference<>() {  
+                }  
+        );  
+          
+        return new ResumeAnalysisResponse(  
+            entity.getOverallScore(),  
+            resumeMapper.toScoreDetail(entity),  // 使用MapStruct自动映射  
+            entity.getSummary(),  
+            strengths,  
+            suggestions,  
+            entity.getResume().getResumeText()  
+        );  
+    } catch (JacksonException e) {  
+        log.error("反序列化评测结果失败: {}", e.getMessage());  
+        throw new BusinessException(ErrorCode.RESUME_ANALYSIS_FAILED, "获取评测结果失败");  
+    }  
+}
 ~~~
