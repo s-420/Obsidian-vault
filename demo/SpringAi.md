@@ -1,6 +1,7 @@
 ## 项目配置依赖
 采用SpringBoot 4.0 +Java 21+Spring AI 2.0 技术栈，使用阿里云dashscope作为大模型服务提供商
 ## 添加依赖
+---
 ~~~ java
 // build.gradle
 dependencies{
@@ -12,4 +13,6 @@ dependencies{
 ~~~
 **版本说明**：
 - spring-ai-starter-model-openai：提供 ChatClient 和 EmbeddingModel
-- spring-ai-starter-vector-store-p'g'vector
+- spring-ai-starter-vector-store-pgvector：提供 VectorStore 对接PostgreSQL+pgvector
+## 配置属性
+---
