@@ -10,4 +10,6 @@ dependencies{
 	implementation "org.springframework.ai:spring-ai-starter-vector-store-pgvector:${libs.versions.springAi.get()}"
 }
 ~~~
-版本说明
+**版本说明**：
+- spring-ai-starter-model-openai：提供 ChatClient 和 EmbeddingModel
+- spring-ai-starter-vector-store-p'g'vector
