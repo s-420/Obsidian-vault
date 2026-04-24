@@ -17,5 +17,39 @@ dependencies{
 ## 配置属性
 ---
 ~~~ xml
-spring
+spring：
+	# Spring AI - 阿里云DashScope (OpenAI兼容模式)  
+	ai:  
+	  openai:  
+	    base-url: https://dashscope.aliyuncs.com/compatible-mode  
+	    api-key: ${AI_BAILIAN_API_KEY}  
+	    chat:  
+	      options:  
+	        model: ${AI_MODEL:qwen-plus}  
+	        temperature: 0.2  
+	    # Embedding模型配置 - 使用text-embedding-v3  
+	    embedding:  
+	      options:  
+	        model: text-embedding-v3  
+	  # 禁用自动重试机制，让异常立即返回  
+	  retry:  
+	    max-attempts: 1  # 不重试，失败立即返回  
+	    on-client-errors: false
+	    
+	    
+# Application custom configuration  
+app:  
+  ai:  
+    default-provider: dashscope  
+    agent-utils:  
+      skills-root: ${APP_AI_AGENT_UTILS_SKILLS_ROOT:classpath:skills}  
+    providers:  
+      dashscope:  
+        base-url: https://dashscope.aliyuncs.com/compatible-mode  
+        api-key: ${AI_BAILIAN_API_KEY}  
+        model: qwen-plus  
+      lmstudio:  
+        base-url: http://localhost:1234  
+        api-key: lm-studio  
+        model: qwen2.5-7b-instruct
 ~~~
