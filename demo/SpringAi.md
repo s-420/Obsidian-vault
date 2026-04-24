@@ -5,8 +5,9 @@
 // build.gradle
 dependencies{
 	// Spring AI 2.0 - OpenAI兼容模式 (阿里云DashScope)  
-		implementation "org.springframework.ai:spring-ai-starter-model-openai:${libs.versions.springAi.get()}"  
+	implementation "org.springframework.ai:spring-ai-starter-model-openai:${libs.versions.springAi.get()}"  
 	// Spring AI 2.0 - PostgreSQL Vector Store (pgvector)  
 	implementation "org.springframework.ai:spring-ai-starter-vector-store-pgvector:${libs.versions.springAi.get()}"
 }
 ~~~
+版本说明
