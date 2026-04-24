@@ -16,3 +16,6 @@ dependencies{
 - spring-ai-starter-vector-store-pgvector：提供 VectorStore 对接PostgreSQL+pgvector
 ## 配置属性
 ---
+~~~ xml
+spring
+~~~
