@@ -354,3 +354,83 @@ ApplicationRunner applicationRunner(NacosConfigManager nacosConfigManager){
 
 从配置中心的设置初衷来看，配置中心本就是为了，统一管理配置存在的，如果以微服务的配置为主，配置中心就是去了存在的意义了。
 先导入优先，外部优先
+
+---
+
+## 7 数据隔离
+
+当 项目有多套环境：dev、test、prod 时，每个微服务 同一个配置 每套环境的值都不一样，项目可以通过切换环境，加载对应环境的配置
+
+![{00B55A91-B355-4541-93FC-187E5A015F41}](https://gitee.com/s420/image-bed/raw/master/img/{00B55A91-B355-4541-93FC-187E5A015F41}.png)
+
+通过 Namespace--->Group--->Data-id 这样层层分组来对应 隔离不同环境下的配置
+
+### 7.1 Nacos 操作
+
+#### 7.1.1 新建命名空间
+
+![{8473B944-FF45-4DEF-844B-D461E13F7E3A}](https://gitee.com/s420/image-bed/raw/master/img/{8473B944-FF45-4DEF-844B-D461E13F7E3A}.png)
+
+![{E15AB0D3-FACF-41DA-9F05-3F3A68A78B8B}](https://gitee.com/s420/image-bed/raw/master/img/{E15AB0D3-FACF-41DA-9F05-3F3A68A78B8B}.png)
+
+#### 7.1.2 创建配置
+
+![](D:\HuaweiMoveData\Users\施鸿福\Pictures\Screenshots\屏幕截图 2026-05-07 230748.png)
+
+新建配置时 设置Group 和 Data ID
+
+#### 7.2.1 编写配置文件
+
+```yml
+server:
+  port: 8000
+
+spring:
+  application:
+    name: service-order
+  profiles:
+    active: dev # 默认激活的配置文件,本质是Nacos的namespace id
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+      config:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+        import-check:
+          enabled: false
+        namespace: ${spring.profiles.active:dev}
+
+---
+spring:
+  config:
+    import:
+      - optional:nacos:common.yml?group=order
+      - optional:nacos:database.yml?group=order
+      - optional:nacos:order.yml?group=order
+    activate:
+      on-profile: dev
+---
+spring:
+  config:
+    import:
+      - optional:nacos:common.yml?group=order
+      - optional:nacos:database.yml?group=order
+      - optional:nacos:order.yml?group=order
+    activate:
+      on-profile: prod
+---
+spring:
+  config:
+    import:
+      - optional:nacos:common.yml?group=order
+      - optional:nacos:database.yml?group=order
+      - optional:nacos:order.yml?group=order
+    activate:
+      on-profile: test
+```
+
+> - 
