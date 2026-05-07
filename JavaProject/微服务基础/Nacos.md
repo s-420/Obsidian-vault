@@ -228,4 +228,25 @@ private Product getProductFromRemoteWithLoadBalance(Long productId) {
 2026-05-07T10:22:54.905+08:00  INFO 12448 --- [service-order] [           main] c.a.c.n.c.NacosConfigDataLoader          : [Nacos Config] Load config[dataId=common.yml, group=order] success
 ~~~
 
-### 4.
+### 4.1.3 解决导入检查
+
+在项目中引入了 配置的依赖，但在nacos中并未创建这个依赖时，程序会报错
+
+**解决方案：**
+
+- ```xml
+  - optional: # 通过optional来标识，此配置时可选择的
+  spring:
+    config:
+      import:
+        - optional:nacos:common.yml?group=order
+  ```
+
+- ~~~xml
+  import-check:# 将导入检查功能jin'xin
+  spring:
+    config:
+      import-check:
+        enabled:false
+  ~~~
+
