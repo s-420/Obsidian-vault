@@ -286,3 +286,5 @@ public class OrderController {
 
 ### 4.2.2 @ConfigrationProperties（prefix=” ”）
 
+若 配置中 有经常要用到的变量，则可以将变量封装到配置属性类中
+
