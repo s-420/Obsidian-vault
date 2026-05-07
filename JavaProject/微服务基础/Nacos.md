@@ -256,3 +256,32 @@ private Product getProductFromRemoteWithLoadBalance(Long productId) {
 
 ### 4.2.1 @RefreshScope
 
+在 controller 上 加上 @RefreshScope ,在配置中心中修改了配置，就会自动刷新
+
+```java
+//@RefreshScope 自动刷新配置
+@RestController
+public class OrderController {
+    @Autowired
+    private OrderService orderService;
+
+    @Autowired
+    private OrderProperties orderProperties;
+
+    @GetMapping("/order/config")
+    public String getAutoConfig(){
+        String str=orderProperties.getTimeOut()+"///"+
+                orderProperties.getAutoConfig()+"///"+orderProperties.getDbUrl();
+        return str;
+    }
+
+
+
+    @GetMapping("/order/create")
+    public Order createOrder(@RequestParam("productId") Long productId, @RequestParam("userId") Long userId) {
+        return orderService.createOrder(productId,userId);
+    }
+}
+```
+
+4
