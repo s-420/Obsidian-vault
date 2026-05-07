@@ -313,3 +313,4 @@ public class OrderProperties {
 ### 5.1 NacosConfigManager 
 
 NacosConfigManager，是 nacos 提供的 一种通过编码的方式 监听配置变化的方法
+
