@@ -204,5 +204,27 @@ private Product getProductFromRemoteWithLoadBalance(Long productId) {
 
 ## 4 配置中心
 
-### 
+### 4.1 基本用法
+
+#### 4.1.1 引入依赖
+
+```java
+<!--配置中心-->
+<dependency>
+    <groupId>com.alibaba.cloud</groupId>
+    <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+</dependency>
+```
+
+### 4.1.2 在nacos中配置文件
+
+![{5299F4BB-1D73-4478-B61F-17865CE9D9D4}](https://gitee.com/s420/image-bed/raw/master/img/{5299F4BB-1D73-4478-B61F-17865CE9D9D4}.png)
+
+
+
+~~~ java
+2026-05-07T10:22:54.905+08:00  WARN 12448 --- [service-order] [           main] c.a.c.n.c.NacosConfigDataLoader          : [Nacos Config] config[dataId=order.yml, group=order] is empty
+2026-05-07T10:22:54.905+08:00  INFO 12448 --- [service-order] [           main] c.a.c.n.c.NacosConfigDataLoader          : [Nacos Config] Load config[dataId=database.yml, group=order] success
+2026-05-07T10:22:54.905+08:00  INFO 12448 --- [service-order] [           main] c.a.c.n.c.NacosConfigDataLoader          : [Nacos Config] Load config[dataId=common.yml, group=order] success
+~~~
 
