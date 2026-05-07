@@ -147,22 +147,27 @@ public class OrderServiceImpl implements OrderService {
         String uri="http://"+instance.getHost()+":"+instance.getPort()+"/product/"+productId;
         return restTemplate.getForObject(uri, Product.class);
     }
+}
+```
 
-    // 优化 1：完成负载均衡
-    private Product getProductFromRemoteWithLoadBalance(Long productId) {
-        ServiceInstance instance = loadBalancerClient.choose("service-product");
-        // http://localhost:8003/product/1
-        String uri="http://"+instance.getHost()+":"+instance.getPort()+"/product/"+productId;
-        System.out.println(uri);
-        return restTemplate.getForObject(uri, Product.class);
-    }
+### 3.2 负载均衡
 
-    // 优化 2：用过完成负载均衡
-    private Product getProductFromRemoteWithLoadBalanceByAnnotation(Long productId) {
-        // http://localhost:8003/product/1
-        String uri="http://service-product/product/"+productId;
-        System.out.println(uri);
-        return restTemplate.getForObject(uri, Product.class);
-    }
+
+
+```java
+// 优化 1：完成负载均衡
+private Product getProductFromRemoteWithLoadBalance(Long productId) {
+    ServiceInstance instance = loadBalancerClient.choose("service-product");
+    // http://localhost:8003/product/1
+    String uri="http://"+instance.getHost()+":"+instance.getPort()+"/product/"+productId;
+    System.out.println(uri);
+    return restTemplate.getForObject(uri, Product.class);
+}
+// 优化 2：用过注解完成负载均衡
+private Product getProductFromRemoteWithLoadBalanceByAnnotation(Long productId) {
+    // http://localhost:8003/product/1
+    String uri="http://service-product/product/"+productId;
+    System.out.println(uri);
+    return restTemplate.getForObject(uri, Product.class);
 }
 ```
