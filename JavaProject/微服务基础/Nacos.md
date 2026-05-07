@@ -230,7 +230,7 @@ private Product getProductFromRemoteWithLoadBalance(Long productId) {
 
 ### 4.1.3 解决导入检查
 
-在项目中引入了 配置的依赖，但在nacos中并未创建这个依赖时，程序会报错
+在项目中引入了 配置的依赖，但在nacos中并未创建这个依赖时，**Spring Cloud Nacos 提供的配置导入检查机制**，程序会报错
 
 **解决方案：**
 
@@ -243,10 +243,16 @@ private Product getProductFromRemoteWithLoadBalance(Long productId) {
   ```
 
 - ~~~xml
-  import-check:# 将导入检查功能jin'xin
+  import-check:# 将导入检查功能关闭
   spring:
     config:
       import-check:
         enabled:false
   ~~~
+
+---
+
+### 4.2 自动刷新
+
+### 4.2.1 @RefreshScope
 
