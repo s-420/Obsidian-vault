@@ -36,3 +36,9 @@ spring:
 
 **1.4 通过多个端口模拟集群模式**
 
+nacos服务列表中可以看到 一个服务有多个实例数
+
+![](https://gitee.com/s420/image-bed/raw/master/img/屏幕截图 2026-05-07 103358.png)
+
+![{3B6BA6C2-0A35-49B6-B3C6-01351E98D4D7}](https://gitee.com/s420/image-bed/raw/master/img/{3B6BA6C2-0A35-49B6-B3C6-01351E98D4D7}.png)
+
