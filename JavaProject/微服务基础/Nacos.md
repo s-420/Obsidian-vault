@@ -42,3 +42,4 @@ nacos服务列表中可以看到 一个服务有多个实例数
 
 ![{3B6BA6C2-0A35-49B6-B3C6-01351E98D4D7}](https://gitee.com/s420/image-bed/raw/master/img/{3B6BA6C2-0A35-49B6-B3C6-01351E98D4D7}.png)
 
+![{16759D72-633B-4263-8EC9-426FC7995703}](https://gitee.com/s420/image-bed/raw/master/img/{16759D72-633B-4263-8EC9-426FC7995703}.png)
