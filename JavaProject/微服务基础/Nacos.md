@@ -184,4 +184,15 @@ private Product getProductFromRemoteWithLoadBalance(Long productId) {
 
 ```
 
-#### 3.2.2 
+#### 3.2.2 @LoadBalanced
+
+在RestTemplate
+
+~~~ java
+ @Bean
+    @LoadBalanced
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+~~~
+
