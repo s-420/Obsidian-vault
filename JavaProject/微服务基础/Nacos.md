@@ -23,3 +23,4 @@ spring:
         password: nacos
 ~~~
 
+**1.3 在nacos中注册**
