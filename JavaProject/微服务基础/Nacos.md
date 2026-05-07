@@ -44,6 +44,8 @@ nacos服务列表中可以看到 一个服务有多个实例数
 
 ![{16759D72-633B-4263-8EC9-426FC7995703}](https://gitee.com/s420/image-bed/raw/master/img/{16759D72-633B-4263-8EC9-426FC7995703}.png)
 
+---
+
 ## 2.服务发现
 
 ### 2.1 添加@EnableDiscoveryClient注解
@@ -59,3 +61,48 @@ public class OrderMainApplication {
     }
 ~~~
 
+### **2.2 DiscoveryClient**
+
+通过 **DiscoveryClient** 的方法 实现服务发现功能
+
+- **discoveryClient.getService:**获取服务对象（实际上获取的是服务名称）
+- **service.getInstance**:获取对象实例
+- **instance.getHost**:获取实例IP
+- **instance.getPort**:获取实例端口
+
+**测试代码如下：**
+
+```java
+@SpringBootTest
+public class DiscoveryTest {
+
+    @Autowired
+    private DiscoveryClient discoveryClient;
+
+//    @Autowired
+//    private NacosServiceDiscovery nacosServiceDiscovery;
+
+    @Test
+    void discoveryClientTest(){
+        List<String> services = discoveryClient.getServices();
+        for (String service : services) {
+            // 获取服务名称
+            System.out.println(service);
+            // 获取服务实例列表（ip:port）
+            List<ServiceInstance> instances = discoveryClient.getInstances(service);
+            for (ServiceInstance instance : instances) {
+                System.out.println(instance.getHost() + ":" + instance.getPort());
+            }
+        }
+    }
+
+}
+```
+
+> NacosServiceDiscovery 也是服务发现的api 也有相同的功能，不过只针对nacos
+
+---
+
+## 3 远程调用
+
+![{379F7B6E-5BD8-4708-880C-654282D18799}](https://gitee.com/s420/image-bed/raw/master/img/{379F7B6E-5BD8-4708-880C-654282D18799}.png)
