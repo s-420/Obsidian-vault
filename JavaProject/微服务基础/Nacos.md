@@ -186,7 +186,7 @@ private Product getProductFromRemoteWithLoadBalance(Long productId) {
 
 #### 3.2.2 @LoadBalanced
 
-在RestTemplate
+在RestTemplate上
 
 ~~~ java
  @Bean
