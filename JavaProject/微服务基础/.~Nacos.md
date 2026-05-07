@@ -347,3 +347,10 @@ ApplicationRunner applicationRunner(NacosConfigManager nacosConfigManager){
     };
 }
 ```
+
+> nacosConfigManager 获取 配置服务对象，addListener方法，绑定配置方法，并配置监听
+
+## 6 如果配置中心和微服务中有相同的配置会使用哪个配置？
+
+从配置中心的设置初衷来看，配置中心本就是为了，统一管理配置存在的，如果以微服务的配置为主，配置中心就是去了存在的意义了。
+先导入优先，外部优先
