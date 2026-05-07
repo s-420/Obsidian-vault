@@ -107,7 +107,7 @@ public class DiscoveryTest {
 
 ![{379F7B6E-5BD8-4708-880C-654282D18799}](https://gitee.com/s420/image-bed/raw/master/img/{379F7B6E-5BD8-4708-880C-654282D18799}.png)
 
-
+远程调用，本质是通过，discoveryClient 获取服务的信息，来拼接url
 
 ```java
 @Service
