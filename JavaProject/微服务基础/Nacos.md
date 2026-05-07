@@ -109,7 +109,23 @@ public class DiscoveryTest {
 
 ### 3.1 远程调用实现
 
-远程调用，本质是通过，discoveryClient 获取服务的信息，来拼接url进行远程调用
+远程调用，本质是通过，discoveryClient 获取服务的信息，来拼接url，通过RestTemplate进行远程调用
+
+**首先要编写RestConfig配置类，RestConfig：**
+
+```java
+@Configuration
+public class RestConfig {
+
+    @Bean
+    @LoadBalanced
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+}
+```
+
+**封装成getProductFromRemote方法实现：**
 
 ```java
 @Service
@@ -152,7 +168,9 @@ public class OrderServiceImpl implements OrderService {
 
 ### 3.2 负载均衡
 
+#### 3.2.1 LoadBalancerClient
 
+通过 loadBalancerClient.choose()方法 从服务列表中 按 负载均衡算法 获取一个对象实例
 
 ```java
 // 优化 1：完成负载均衡
@@ -163,11 +181,7 @@ private Product getProductFromRemoteWithLoadBalance(Long productId) {
     System.out.println(uri);
     return restTemplate.getForObject(uri, Product.class);
 }
-// 优化 2：用过注解完成负载均衡
-private Product getProductFromRemoteWithLoadBalanceByAnnotation(Long productId) {
-    // http://localhost:8003/product/1
-    String uri="http://service-product/product/"+productId;
-    System.out.println(uri);
-    return restTemplate.getForObject(uri, Product.class);
-}
+
 ```
+
+#### 3.2.2 
