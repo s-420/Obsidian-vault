@@ -288,3 +288,18 @@ public class OrderController {
 
 若 配置中 有经常要用到的变量，则可以将变量封装到配置属性类中
 
+orderProperties.
+
+```
+@Data
+@ConfigurationProperties(prefix = "order")
+@Component
+public class OrderProperties {
+
+    String timeOut;
+
+    String autoConfig;
+
+    String dbUrl;
+}
+```
