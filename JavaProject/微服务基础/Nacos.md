@@ -318,3 +318,8 @@ NacosConfigManager，是 nacos 提供的 一种通过编码的方式 监听配�
 
 用 NacosConfigManaer 来实现配置监听功能：
 
+实现 **配置中心中的配置文件一变化 就输出日志信息**
+	1）项目启动就监听配置文件变化（ApplicationRunner 一次性任务，项目一启动，这个任务就会启动）
+	2）发生变化后拿到变化的值（NacoConfigManager 的 configService.addListener，其中 Listener参数来 实现获取变化的配置信息
+	3）输出日志信息
+
