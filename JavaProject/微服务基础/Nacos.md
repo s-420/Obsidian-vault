@@ -288,7 +288,7 @@ public class OrderController {
 
 若 配置中 有经常要用到的变量，则可以将变量封装到配置属性类中
 
-orderProperties.
+orderProperties.class:
 
 ```
 @Data
@@ -303,3 +303,11 @@ public class OrderProperties {
     String dbUrl;
 }
 ```
+
+这样 不用加 @RefreshScope 就可以实现自动刷新
+
+---
+
+## 5 配置监听
+
+### 5.1 
