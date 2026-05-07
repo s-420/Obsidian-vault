@@ -186,7 +186,7 @@ private Product getProductFromRemoteWithLoadBalance(Long productId) {
 
 #### 3.2.2 @LoadBalanced
 
-在RestTemplate上
+在RestTemplate上，添加LoadBalanced来实现负载均衡
 
 ~~~ java
  @Bean
