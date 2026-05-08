@@ -103,7 +103,7 @@ public class DiscoveryTest {
 
 ---
 
-## 3 远程调用
+## 3 nacos远程调用
 
 ![{379F7B6E-5BD8-4708-880C-654282D18799}](https://gitee.com/s420/image-bed/raw/master/img/{379F7B6E-5BD8-4708-880C-654282D18799}.png)
 
@@ -389,7 +389,7 @@ spring:
   application:
     name: service-order
   profiles:
-    active: dev # 默认激活的配置文件,本质是Nacos的namespace id
+    active: dev # 默认激活的配置文件
   cloud:
     nacos:
       discovery:
@@ -402,7 +402,7 @@ spring:
         password: nacos
         import-check:
           enabled: false
-        namespace: ${spring.profiles.active:dev}
+        namespace: ${spring.profiles.active:dev} #本质是Nacos的namespace id，这里因为刚好设置的是dev，所以这里就用dev
 
 ---
 spring:
@@ -431,6 +431,10 @@ spring:
       - optional:nacos:order.yml?group=order
     activate:
       on-profile: test
+
 ```
 
-> - 
+> - spring:profile:active: dev : 默认激活的配置文件
+> - --- ： 配置分页
+> - spring:config:activate:on-profile:dev ：对应激活环境的配置内容，通过分页来区分（实际开发中也会分为三个yml文件）
+> - spring:nacos:config:namespace：对应nacos中配置的命名空间 ID，命名空间的唯一标识
