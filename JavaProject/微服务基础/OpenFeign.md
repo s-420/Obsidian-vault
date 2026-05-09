@@ -112,7 +112,7 @@ Logger.Level feginLoggerLevel(){
 }
 ```
 
-### 2.2 重试机制
+### 2.2 超时机制
 
 #### 2.2.1 修改配置文件
 
@@ -120,7 +120,7 @@ Logger.Level feginLoggerLevel(){
 connect-timeout：连接超时 
 read-timeout：读取超时
 
-### 2.3 超时机制
+### 2.3 重试机制
 
 实现方式：
 
@@ -136,7 +136,6 @@ read-timeout：读取超时
 
   - ```java
     OrderConfig.java
-    
     @Bean
     Retryer retryer(){
         return new Retryer.Default();
