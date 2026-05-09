@@ -77,6 +77,8 @@ public interface ProductFeignClient {
 
 ### 2.1 日志功能
 
+#### 2.1.1 修改配置文件
+
 在 配置文件中，配置日志模式
 
 ~~~ java
@@ -96,6 +98,12 @@ spring：
 ~~~
 
 spring:cloud：openfeign:client:config:default/服务名：logger-level:FULL
+
+#### 2.1.2 修改配置类
+
+在配置类中注册，该配置：
+
+
 
 ### 2.2 重试机制
 
