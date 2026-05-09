@@ -79,17 +79,21 @@ public interface ProductFeignClient {
 
 在 配置文件中，配置日志模式
 
-```
-openfeign:
-  client:
-    config:
-      default:
-        logger-level: FULL
-        connect-timeout: 10000
-        read-timeout: 20000
-      service-product:
-        # logger-level: FULL
-        connect-timeout: 1000
-        read-timeout: 2000
-```
+~~~ java
+spring：
+  cloud：
+    openfeign:
+      client:
+        config:
+          default:
+            logger-level: FULL
+            connect-timeout: 10000
+            read-timeout: 20000
+          service-product:
+            # logger-level: FULL
+            connect-timeout: 1000
+            read-timeout: 2000
+~~~
+
+spring:cloud
 
