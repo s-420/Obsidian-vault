@@ -166,5 +166,18 @@ public class XTokenRequestInterceptor implements RequestInterceptor {
 ### 3.2 拦截注册
 
 - 在请求拦截类上，添加@Component，将拦截器注入容器
-- 
+
+- 在配置文件中，配置拦截器参数
+
+  - ```
+    openfeign:
+      client:
+        config:
+       
+          service-product:
+            # request-interceptors:
+            #   - com.s420.interceptor.XTokenRequestInterceptor
+            # response-interceptor:
+            # - com.s420.interceptor.XTokenResponseInterceptor
+    ```
 
