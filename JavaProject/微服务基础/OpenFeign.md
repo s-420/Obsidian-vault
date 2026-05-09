@@ -95,5 +95,7 @@ spring：
             read-timeout: 2000
 ~~~
 
-spring:cloud
+spring:cloud：openfeign:client:config:default/服务名：logger-level:FULL
+
+### 2.2 重试机制
 
