@@ -117,6 +117,10 @@ Logger.Level feginLoggerLevel(){
 #### 2.2.1 修改配置文件
 
 代码：2.1.1
-connect-timeout: 
-read-timeout: 
+connect-timeout：连接超时 
+read-timeout：读取超时
+
+#### ### 2.3 
+
+
 
