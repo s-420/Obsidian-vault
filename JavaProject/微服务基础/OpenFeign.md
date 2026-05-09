@@ -65,4 +65,7 @@ public interface ProductFeignClient {
 - configuration：自定义配置类
 - contextId：多客户端区分标识，未指定则将value/name 当作标识
 
-接口抽象方法，模拟被调用服务的httpqin
+接口抽象方法，模拟被调用服务的http请求来写
+
+#### 1.3 客户端负载均衡与服务端负载均衡的区别
+
