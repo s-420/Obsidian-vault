@@ -204,4 +204,5 @@ public class ProductFeginClienFallBack implements ProductFeignClient {
 }
 ```
 
-实现的接口：
+实现的接口：[[1.2.1]]
+
