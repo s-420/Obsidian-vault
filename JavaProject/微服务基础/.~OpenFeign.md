@@ -204,4 +204,4 @@ public class ProductFeginClienFallBack implements ProductFeignClient {
 }
 ```
 
-[](1.2.2 编写 Feign 远程调用客户端)
+[实现的接口：](1.2.2 编写 Feign 远程调用客户端)
