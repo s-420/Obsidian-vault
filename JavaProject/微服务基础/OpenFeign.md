@@ -67,5 +67,6 @@ public interface ProductFeignClient {
 
 接口抽象方法，模拟被调用服务的http请求来写
 
-#### 1.3 客户端负载均衡与服务端负载均衡的区别
+#### 1.3 客户端负载均衡与服务端负载均衡的区别![{56C35088-D643-40E1-832F-61DC29260F0C}](https://gitee.com/s420/image-bed/raw/master/img/{56C35088-D643-40E1-832F-61DC29260F0C}.png)
 
+客户端：fa's
