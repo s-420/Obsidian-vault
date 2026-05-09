@@ -440,3 +440,6 @@ spring:
 > - --- ： 配置分页
 > - spring:config:activate:on-profile:dev ：对应激活环境的配置内容，通过分页来区分（实际开发中也会分为三个yml文件）
 > - spring:nacos:config:namespace：对应nacos中配置的命名空间 ID，命名空间的唯一标识
+
+---
+
