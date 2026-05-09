@@ -125,8 +125,23 @@ read-timeout：读取超时
 实现方式：
 
 - 修改配置类：
-  - 
+
+  - ```java
+    application.yml
+    service-product:
+      retryer: default
+    ```
+
 - 修改配置文件：
+
+  - ```java
+    OrderConfig.java
+    
+    @Bean
+    Retryer retryer(){
+        return new Retryer.Default();
+    }
+    ```
 
 
 
