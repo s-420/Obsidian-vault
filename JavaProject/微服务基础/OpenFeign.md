@@ -63,4 +63,4 @@ public interface ProductFeignClient {
 - url：直接指定服务URL（跳过服务发现，超用于调用第三方api）
 - fallback：指定降级处理类（不包含异常信息）
 - configuration：自定义配置类
-- contextId：多客户端qu
+- contextId：多客户端区分标识，未指定则将value/name 当作标识
