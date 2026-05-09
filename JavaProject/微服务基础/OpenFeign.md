@@ -182,4 +182,6 @@ public class XTokenRequestInterceptor implements RequestInterceptor {
               - com.s420.interceptor.XTokenResponseInterceptor
     ```
 
-## 
+## 4 兜底返回
+
+远程调用中，若远程调用失败，返回兜底数据（通过兜底类实现）
