@@ -77,4 +77,19 @@ public interface ProductFeignClient {
 
 ### 2.1 日志功能
 
-在 pe
+在 配置文件中，配置日志模式
+
+```
+openfeign:
+  client:
+    config:
+      default:
+        logger-level: FULL
+        connect-timeout: 10000
+        read-timeout: 20000
+      service-product:
+        # logger-level: FULL
+        connect-timeout: 1000
+        read-timeout: 2000
+```
+
