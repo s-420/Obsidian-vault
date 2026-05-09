@@ -59,4 +59,5 @@ public interface ProductFeignClient {
 
 **@FeignClient** 参数：
 
-- 
+- value/name：指定服务名称（用于服务发现）
+- url：直接指定服务URL（跳过服务发现，超用于调用第三方api）
