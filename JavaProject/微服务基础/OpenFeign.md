@@ -73,6 +73,8 @@ public interface ProductFeignClient {
 服务端：接受请求的这一段，服务端内部实现负载均衡
 **总结：** 客户端主动选择服务，服务端被动分配服务
 
+---
+
 ## 2 进阶用法
 
 ### 2.1 日志功能
@@ -103,7 +105,14 @@ spring:cloud：openfeign:client:config:default/服务名：logger-level:FULL
 
 在配置类中注册，该配置：
 
-
+```java
+@Bean
+Logger.Level feginLoggerLevel(){
+    return Logger.Level.FULL;
+}
+```
 
 ### 2.2 重试机制
+
+#### 
 
