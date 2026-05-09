@@ -185,3 +185,23 @@ public class XTokenRequestInterceptor implements RequestInterceptor {
 ## 4 兜底返回
 
 远程调用中，若远程调用失败，返回兜底数据（通过兜底类实现请求接口，降级处理）
+
+兜底类：
+
+```java
+@Component
+public class ProductFeginClienFallBack implements ProductFeignClient {
+    @Override
+    public Product getProductById(Long productId) {
+        System.out.println("兜底回调...");
+        return Product.builder()
+                .productId(productId)
+                .price(BigDecimal.valueOf(0))
+                .productName("兜底商品")
+                .num(0)
+                .build();
+    }
+}
+```
+
+实现的接口：
