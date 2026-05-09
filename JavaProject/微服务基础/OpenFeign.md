@@ -120,7 +120,13 @@ Logger.Level feginLoggerLevel(){
 connect-timeout：连接超时 
 read-timeout：读取超时
 
-#### ### 2.3 
+### 2.3 超时机制
+
+实现方式：
+
+- 修改配置类：
+  - 
+- 修改配置文件：
 
 
 
