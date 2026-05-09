@@ -186,6 +186,14 @@ public class XTokenRequestInterceptor implements RequestInterceptor {
 
 远程调用中，若远程调用失败，返回兜底数据（通过兜底类实现请求接口，降级处理）
 
+首先要，借助sentinel，引入sentinel依赖，在配置文件中：
+
+```yml
+feign:
+  sentinel:
+    enabled: true
+```
+
 兜底类：
 
 ```java
