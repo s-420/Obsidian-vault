@@ -18,4 +18,5 @@ Sentinel 是作用于 服务保护的框架，对资源添加保护规则
 
 **定义资源：**
 
-- 主流框架 **自动适配** （Web Servlet、Dubbo、Spring Cloud、gRPC）
+- 主流框架 **自动适配** （Web Servlet、Dubbo、Spring Cloud、gRPC、Spring WebFlux、Reactor）；所有Web接口均为资源
+- 编程时
