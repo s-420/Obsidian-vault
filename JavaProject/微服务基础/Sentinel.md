@@ -26,4 +26,6 @@ Sentinel 是作用于 服务保护的框架，对资源添加保护规则
 
 - 流量控制（FlowRule）
 - 熔断降级（DegradeRule）
-- 系统保护（System ）
+- 系统保护（SystemRule）：gen
+- 来源访问控制（AuthorityRule）
+- 热点参数（ParamFlowRule）
