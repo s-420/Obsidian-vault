@@ -29,3 +29,7 @@ Sentinel 是作用于 服务保护的框架，对资源添加保护规则
 - 系统保护（SystemRule）：根据当前系统的 cpu的负载、内存使用率 限制请求的进入
 - 来源访问控制（AuthorityRule）
 - 热点参数（ParamFlowRule）
+
+### 1.3 工作原理
+
+![{16E126BF-26AB-41D5-89F1-AE4977C94919}](https://gitee.com/s420/image-bed/raw/master/img/{16E126BF-26AB-41D5-89F1-AE4977C94919}.png)
