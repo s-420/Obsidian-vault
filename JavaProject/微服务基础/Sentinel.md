@@ -50,3 +50,4 @@ docker pull bladex/sentinel-dashboard:1.8.8
      bladex/sentinel-dashboard:1.8.8
 ~~~
 
+![{BC560BFF-728A-43CF-BD24-BC6907BC66AC}](https://gitee.com/s420/image-bed/raw/master/img/{BC560BFF-728A-43CF-BD24-BC6907BC66AC}.png)
