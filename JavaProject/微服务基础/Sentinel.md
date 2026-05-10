@@ -66,11 +66,11 @@ spring:
 
 ![{47A1F00A-11A2-4B84-8EBF-6F42D7F3B0BA}](https://gitee.com/s420/image-bed/raw/master/img/{47A1F00A-11A2-4B84-8EBF-6F42D7F3B0BA}.png)
 
-### 3 异常处理
+## 3 异常处理
 
 ![{BC560BFF-728A-43CF-BD24-BC6907BC66AC}](https://gitee.com/s420/image-bed/raw/master/img/{BC560BFF-728A-43CF-BD24-BC6907BC66AC}.png)
 
-#### 3.1 Web接口
+### 3.1 Web接口
 
 对于web接口（对 请求接口），sentinel的异常处理机制是通过SentinelWebInterceptor 拦截器拦截，若有异常，则由默认的BlockExceptionHandler返回默认异常信息，可以自定义 MyBlockExceptionHandler实现BlockExceptionHandler来自定义异常信息
 
@@ -102,7 +102,7 @@ public Order createOrder(@RequestParam("productId") Long productId, @RequestPara
 }
 ```
 
-#### 3.2 @SentinelResource
+### 3.2 @SentinelResource
 
 对于 @SentinelResource（对方法），底层是一个SentinelResourceAspect 切面类，其中逻辑是，若符合规则则正常返回，若不符合规则，则通过注解中指定的blockHandler兜底处理方法进行兜底回调，若blockHandler不存在，则查看是否指定了fallback，若fallback不存在，则看是否指定了DefaultFallback，若都没有则抛出系统异常
 简单解决，自定义个兜底方法，添加到注解参数中
@@ -139,14 +139,14 @@ public Order createOrderHandleBlock(Long productId, Long userId, BlockException 
 }
 ```
 
-#### 3.3 OpenFeign 远程调用
+### 3.3 OpenFeign 远程调用
 
 对于openfeign（对远程调用方法），由SentinelFeign.builder()执行，@FeignClient中的兜底返回机制，若未配置则也会抛出系统异常
 
 被规则保护的资源：
 
 ```java
-sho@FeignClient(value="service-product",fallback= ProductFeginClienFallBack.class)
+@FeignClient(value="service-product",fallback= ProductFeginClienFallBack.class)
 @Component
 public interface ProductFeignClient {
 
