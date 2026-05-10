@@ -36,3 +36,17 @@ Sentinel 是作用于 服务保护的框架，对资源添加保护规则
 
 用户 请求资源，若配置了规则，则会进行 Sentinel 检查，判断是否违反规则，若未违反规则，则放行 结束，若违反规则 抛出异常，判断是否有异常处理，没有则 输出默认错误 结束，若有则 执行fallback 结束
 
+---
+
+## 2 整合使用
+
+### 2.1 docker 部署
+
+~~~ java
+docker pull bladex/sentinel-dashboard:1.8.8
+
+ docker run -d --name sentinel-dashboard -p 8858:8858 
+     -e JAVA_OPTS="-Dserver.port=8858 Dsentinel.dashboard.auth.username=sentinel -Dsentinel.dashboard.auth.password=sentinel" 
+     bladex/sentinel-dashboard:1.8.8
+~~~
+
