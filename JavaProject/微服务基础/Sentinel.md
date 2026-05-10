@@ -20,4 +20,10 @@ Sentinel 是作用于 服务保护的框架，对资源添加保护规则
 
 - 主流框架 **自动适配** （Web Servlet、Dubbo、Spring Cloud、gRPC、Spring WebFlux、Reactor）；所有Web接口均为资源
 - 编程式：SphU API
-- 声明式：@Sentinel
+- 声明式：@SentinelResource
+
+**定义规则：**
+
+- 流量控制（FlowRule）
+- 熔断降级（DegradeRule）
+- 系统保护（System ）
