@@ -146,7 +146,7 @@ public Order createOrderHandleBlock(Long productId, Long userId, BlockException 
 被规则保护的资源：
 
 ```java
-@FeignClient(value="service-product",fallback= ProductFeginClienFallBack.class)
+sho@FeignClient(value="service-product",fallback= ProductFeginClienFallBack.class)
 @Component
 public interface ProductFeignClient {
 
