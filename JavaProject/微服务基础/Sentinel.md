@@ -32,4 +32,6 @@ Sentinel 是作用于 服务保护的框架，对资源添加保护规则
 
 ### 1.3 工作原理
 
-![{16E126BF-26AB-41D5-89F1-AE4977C94919}](https://gitee.com/s420/image-bed/raw/master/img/{16E126BF-26AB-41D5-89F1-AE4977C94919}.png)
+<img src="https://gitee.com/s420/image-bed/raw/master/img/{16E126BF-26AB-41D5-89F1-AE4977C94919}.png" alt="{16E126BF-26AB-41D5-89F1-AE4977C94919}" style="zoom: 50%;" />
+
+用户 请求资源，若配置了规则，则会进行 Sentinel 检查，判断是否违反规则，
