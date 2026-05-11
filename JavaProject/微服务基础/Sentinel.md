@@ -254,9 +254,23 @@ public class ProductFeginClienFallBack implements ProductFeignClient {
 - 异常数：在统计时间内，对 被调用者 发送请求中，调用产生的异常数 超过 指定的异常数 ，则 断路器 的状态会由 闭合 转换为 打开
   - ![{6EE462A3-F255-47E0-BCA8-60E5BBAC829C}](https://gitee.com/s420/image-bed/raw/master/img/{6EE462A3-F255-47E0-BCA8-60E5BBAC829C}.png)
 
-#### 5.2.2 有无熔断规则的对比
+### 5.2.2 有无熔断规则的对比
 
+![{6A9DFFE5-C53E-4F75-95A1-B6527D1B851A}](https://gitee.com/s420/image-bed/raw/master/img/{6A9DFFE5-C53E-4F75-95A1-B6527D1B851A}.png)
 
+- 无熔断规则：服务A会调用B服务，若调用B服务出现异常，则fallback兜底方法
+- 有熔断规则：服务A会判断 断路器 是否 闭合，若打开则不会调用B服务，直接fallback兜底方法，若 闭合 则会调用服务B
 
+## 6 热点规则
 
+对参数进行细致的流控
 
+>  携带参数的参与流控，不携带的不参与流控
+
+![{63FD1C51-FFC6-4032-82E9-77E4C3C9F4A1}](https://gitee.com/s420/image-bed/raw/master/img/{63FD1C51-FFC6-4032-82E9-77E4C3C9F4A1}.png)
+
+- 参数索引：绑定的资源的 参数索引（0：第一个参数，1：第二个参数）
+
+![{22248EC1-6F90-4A38-B2AA-3C0EFB5692CB}](https://gitee.com/s420/image-bed/raw/master/img/{22248EC1-6F90-4A38-B2AA-3C0EFB5692CB}.png)
+
+- 参数例外项：参数的某些特定值，作为例外，不被规则约束（不会报错，也不会被兜底回调，被 规则排除在外）
