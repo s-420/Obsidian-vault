@@ -172,3 +172,26 @@ public class ProductFeginClienFallBack implements ProductFeignClient {
     }
 }
 ```
+
+## 4 流量控制
+
+流量控制，是通过限制多于请求，避免资源被耗尽，导致服务雪崩的策略
+
+### 4.1 阈值类型
+
+- QPS：每秒单个线程请求数
+- 并发线程数：多个线程的请求
+
+单机：
+
+- 单机阈值：一次允许通过的请求数
+
+集群：
+
+- 均摊阈值：假设均摊阈值为5
+  - 单机均摊：每个服务器，最多为5，总体最多15
+  - 总体阈值：所有服务器，最多为5
+
+### 4.2 流控模式
+
+![{9C99CEE9-67E9-4A46-B762-C9F8169408D1}](https://gitee.com/s420/image-bed/raw/master/img/{9C99CEE9-67E9-4A46-B762-C9F8169408D1}.png)
