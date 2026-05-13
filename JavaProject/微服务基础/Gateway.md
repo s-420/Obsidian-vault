@@ -299,6 +299,8 @@ spring:
 
 ### 3.3 自定义断言规则
 
+### 3.3.1 自定义断言工厂
+
 ```java
 @Component
 public class VipRoutePredicateFactory extends AbstractRoutePredicateFactory<VipRoutePredicateFactory.Config> {
@@ -359,5 +361,58 @@ public class VipRoutePredicateFactory extends AbstractRoutePredicateFactory<VipR
 
 主要包含以下几个部分：
 
+- @Component：注册自定义断言工厂
+
 - PARAM_KEY/VALUE_KEY：断言参数
-- VipRoutePredicateFactory()：构造方法，获取 内部类的值，
+
+- VipRoutePredicateFactory()：构造方法
+
+  - 告诉父类使用哪个配置类来解析yml中的参数
+  - 父类会自动处理配置绑定和参数校验
+
+-  List<String> shortcutFieldOrder() ：定义短配置的参数顺序
+
+- Predicate<ServerWebExchange> apply(final Config config)：核心实现逻辑
+
+  - 定义断言的核心逻辑，返回一个Predicate<ServerWebExchange>
+
+  - 每个请求到达时 会调用 test() 方法来判断是否匹配
+
+  - 返回 true 则允许 路由，返回 false 则拒绝
+
+  - > Predicate 核心：校验请求是否匹配要求
+
+- public static class Config： 内部类
+  - 绑定配置和参数校验
+
+~~~ java
+请求进入网关 → 读取 YAML 配置 → 解析参数到 Config 对象 → 
+→ 调用 apply(Config) 生成 Predicate → 
+→ 对每个请求调用 test(ServerWebExchange) → 
+→ 返回 true/false 决定是否路由
+~~~
+
+### 3.3.2 自定义断言配置
+
+```yml
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+    gateway:
+      routes:
+        - id: chrome-router
+          uri: https://www.google.com/
+          predicates:
+             - name: Vip
+              args:
+                param: user
+                value: wujinhai
+```
+
+> 自定义断言规则：当路径中有 user 参数且其值等于 wujinhai的时候返回 true 放行
