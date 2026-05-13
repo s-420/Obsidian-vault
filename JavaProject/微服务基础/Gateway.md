@@ -65,6 +65,7 @@ spring:
               args:
                 pattern: /api/order/**
                 matchTrailingSlash: true
+          order: 0
      
 ```
 
@@ -74,6 +75,7 @@ spring:
 - uri：转发地址（“lb: ”：标识负载均衡）
 - predicates：断言
   - Path：断言名，用于指定接受的路径
+- order： 设置优先级
 
 ---
 
@@ -424,3 +426,27 @@ spring:
 
 ## 4 Filter 过滤器
 
+### 4.1 Filter 基本使用
+
+```yml
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+    gateway:
+      routes:
+        - id: product-router
+          uri: lb://service-product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            # - RewritePath=/api/product/?(?<segment>.*), /$\{segment}
+            - name: ReWritePath
+              args:
+              
+```
