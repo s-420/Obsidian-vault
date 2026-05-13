@@ -471,6 +471,42 @@ spring:
           filters:
             - RewritePath=/api/product/?(?<segment>.*), /$\{segment}
        default-filters:
-        - AddResponseHeader=X-Header-abc
+        - AddResponseHeader=X-Header-abc,123
 ~~~
 
+> https://springdoc.cn/spring-cloud-gateway/#gatewayfilter-%E5%B7%A5%E5%8E%82 各种filter方法
+
+### 4.3 GlobalFilter
+
+全局 Filter 通过 实现GlobalFilter，Orderd的接口实现
+
+```java
+@Component
+@Slf4j
+public class RtGlobalFilter implements GlobalFilter, Ordered {
+    @Override
+    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        ServerHttpRequest request = exchange.getRequest();
+        ServerHttpResponse response = exchange.getResponse();
+
+        long startTime = System.currentTimeMillis();
+        log.info("请求: {},开始时间: {}", request.getURI().toString(), startTime);
+
+        Mono<Void> filter = chain.filter(exchange)
+                .doFinally((result) -> {
+            long endTime = System.currentTimeMillis();
+            log.info("请求: {},结束时间: {},耗时: {} ms", request.getURI().toString(), endTime, endTime - startTime);
+        });
+
+        return filter;
+    }
+
+    @Override
+    public int getOrder() {
+        return 0;
+    }
+}
+```
+
+- @Component：注入容器
+- 
