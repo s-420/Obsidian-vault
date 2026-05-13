@@ -509,4 +509,12 @@ public class RtGlobalFilter implements GlobalFilter, Ordered {
 ```
 
 - @Component：注入容器
-- 
+- GlobalFilter：全局过滤器，对所有路由生效，无需在yml中配置
+- ServerWebExchange：可以获取 请求 和 响应 对象
+- chain.filter(exchange)：调用下一个过滤器，返回Mono<Void>
+- doFinally()：后置钩子，无论成功/失败/取消 都会执行
+- Mono<Void> ：Reactor 响应式类型，表示异步操作
+- getOrder()：
+  - <0 在内置过滤器之前执行
+  - 0 默认顺序
+  - 大于 0 在内置过滤器之后执行
