@@ -518,3 +518,86 @@ public class RtGlobalFilter implements GlobalFilter, Ordered {
   - <0 在内置过滤器之前执行
   - 0 默认顺序
   - 大于 0 在内置过滤器之后执行
+- GatewayFilterChain：是过滤器链的抽象，通过 filter（exchange）方法将请求传递给下一个过滤器，直到所有过滤器执行完毕后结束
+
+> 总结：可以把 chain 看作 整个实现链路的一部分，我们只是在这个 链路中间 添油加醋
+
+### 4.4 自定义过滤器
+
+自定义过滤器，通过实现 AbstractNameVauleGatewayFilterFactory 的 apply 来实现
+
+```java
+@Component
+public class OnceTokenFilter extends AbstractNameValueGatewayFilterFactory {
+    @Override
+    public GatewayFilter apply(NameValueConfig config) {
+        return new GatewayFilter() {
+            @Override
+            public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+                return chain.filter(exchange).then(Mono.fromRunnable(() -> {
+                    ServerHttpResponse response = exchange.getResponse();
+                    HttpHeaders headers = response.getHeaders();
+
+                    String value = config.getValue();
+
+                    if("uuid".equalsIgnoreCase(value))
+                    {
+                        value = UUID.randomUUID().toString();
+                    }
+
+                    if("jwt".equalsIgnoreCase(value))
+                    {
+                        value = "Bearer " + UUID.randomUUID().toString();
+                    }
+
+                    headers.add(config.getName(), value);
+
+                }));
+            }
+        };
+    }
+}
+```
+
+- chain.filter(exchange)：执行下一步链路
+- then：执行完链路的操作
+- cofig：绑定配置文件中的数据
+- OnceToken：拦截器名
+
+### 4.5 添加配置
+~~~ yml
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:   
+        - id: order-router
+          uri: lb://service-order
+          predicates:
+            - name: Path
+              args:
+                pattern: /api/order/**
+                matchTrailingSlash: true
+          filters:
+            - RewritePath=/api/order/?(?<segment>.*), /$\{segment}
+    *****   - OnceTokenFilter=X-Response-Token, jwt   *****
+~~~
+
+---
+
+## 5 全局跨域
+
+配置如下：
+
+```yml
+
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "https://docs.spring.io"
+            allowedMethods:
+              - GET
+```
+
+详见：https://springdoc.cn/spring-cloud-gateway/#cors-%E9%85%8D%E7%BD%AE
