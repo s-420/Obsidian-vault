@@ -1,5 +1,7 @@
 [
   "obsidian-git",
   "obsidian-excalidraw-plugin",
-  "immersive-translate"
+  "immersive-translate",
+  "obsidian-local-rest-api",
+  "smart-connections"
 ]
