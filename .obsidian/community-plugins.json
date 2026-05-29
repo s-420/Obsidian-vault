@@ -1,8 +1,7 @@
 [
   "obsidian-git",
   "obsidian-excalidraw-plugin",
-  "immersive-translate",
   "obsidian-local-rest-api",
   "smart-connections",
-  "opencode"
+  "selection-translator"
 ]
