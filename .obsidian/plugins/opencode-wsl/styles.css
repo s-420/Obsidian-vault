@@ -1,0 +1,79 @@
+.opencode-iframe-view {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	margin: 0;
+}
+
+.workspace-leaf-content[data-type="opencode-wsl-view"] .view-content {
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.opencode-iframe {
+	flex: 1;
+	width: 100%;
+	height: 100%;
+	border: none;
+	display: none;
+}
+
+.opencode-iframe-connected {
+	display: flex;
+}
+
+.opencode-iframe-status {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	flex: 1;
+	width: 100%;
+	text-align: center;
+	padding: 2em;
+	box-sizing: border-box;
+}
+
+.opencode-iframe-status-connected {
+	display: none;
+}
+
+.opencode-iframe-status-text {
+	color: var(--text-muted);
+	font-size: 14px;
+}
+
+.opencode-iframe-status-loading {
+	color: var(--text-muted);
+}
+
+.opencode-iframe-status-error {
+	color: var(--text-error);
+}
+
+.opencode-iframe-start-btn {
+	display: none;
+	padding: 8px 24px;
+	background: var(--interactive-accent);
+	color: var(--text-on-accent);
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.opencode-iframe-start-stopped {
+	display: inline-block;
+}
+
+.opencode-iframe-start-btn:hover {
+	opacity: 0.9;
+}

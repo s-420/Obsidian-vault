@@ -3,5 +3,6 @@
   "obsidian-excalidraw-plugin",
   "obsidian-local-rest-api",
   "smart-connections",
-  "selection-translator"
+  "selection-translator",
+  "opencode-wsl"
 ]

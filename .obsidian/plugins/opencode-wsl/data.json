@@ -1,0 +1,9 @@
+{
+  "port": 14096,
+  "hostname": "127.0.0.1",
+  "autoStart": true,
+  "wslDistro": "",
+  "opencodePath": "opencode",
+  "cwd": "/mnt/d/Code/JavaProjects/Obsidian-vault",
+  "serverPassword": ""
+}
