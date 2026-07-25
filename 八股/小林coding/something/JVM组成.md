@@ -83,3 +83,9 @@
 - istore-index：将栈底数据存入局部变量表（index处）
 - iload-index：从局部变量表中读取index处的变量值
 - iadd：加法
+
+#### 本地方法栈
+
+![{FDFE2460-19FE-4ECA-8681-A7F330F32D53}](https://gitee.com/s420/image-bed/raw/master/img/{FDFE2460-19FE-4ECA-8681-A7F330F32D53}.png)
+
+### dui
