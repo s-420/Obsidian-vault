@@ -250,3 +250,8 @@
 ![{114738DF-88A7-4B23-ACA1-D155012012CE}](https://gitee.com/s420/image-bed/raw/master/img/{114738DF-88A7-4B23-ACA1-D155012012CE}.png)
 
 ![{003C34DF-A876-4056-A354-6164B6EE4848}](https://gitee.com/s420/image-bed/raw/master/img/{003C34DF-A876-4056-A354-6164B6EE4848}.png)
+
+- Young GC：Eden区满，触发G1的Young GC ，对 Eden区进行GC
+
+- Mixed GC： 老年代的占用率达到了 指定百分比，会对所有新生代，部分老年代，以及大对象区进行回收
+- Full GC：和 CMS 中 对象太大而新生代放不下的情况一样 ，这里是当 复制算法 复制对象时 被复制的region 区域不够时，会触发Full GC （STW，采用单线程的 标记-清除法清理，相当于 Serial GC）
