@@ -96,3 +96,5 @@
 - JVM后台执行GC（垃圾回收器），对象才会被回收
 
 ![{2EEDEA28-F93F-4BD0-94B1-8567423DEA9B}](https://gitee.com/s420/image-bed/raw/master/img/{2EEDEA28-F93F-4BD0-94B1-8567423DEA9B}.png)
+
+![{ACA4C57C-5FC9-4B36-8026-6FF5F3027320}](https://gitee.com/s420/image-bed/raw/master/img/{ACA4C57C-5FC9-4B36-8026-6FF5F3027320}.png)
