@@ -88,4 +88,8 @@
 
 ![{FDFE2460-19FE-4ECA-8681-A7F330F32D53}](https://gitee.com/s420/image-bed/raw/master/img/{FDFE2460-19FE-4ECA-8681-A7F330F32D53}.png)
 
-### dui
+### 堆
+
+所有的对象实例和地址，都该放在堆中
+
+![{2EEDEA28-F93F-4BD0-94B1-8567423DEA9B}](https://gitee.com/s420/image-bed/raw/master/img/{2EEDEA28-F93F-4BD0-94B1-8567423DEA9B}.png)
