@@ -88,7 +88,7 @@
 
 ![{FDFE2460-19FE-4ECA-8681-A7F330F32D53}](https://gitee.com/s420/image-bed/raw/master/img/{FDFE2460-19FE-4ECA-8681-A7F330F32D53}.png)
 
-### 堆
+## 堆
 
 - 所有的对象实例和地址，都该放在堆中
 - 栈帧中有对象引用的地址
@@ -127,7 +127,7 @@
 
   - 当一个非常大的对象被创建后，Eden区也放不下这个对象，会直接放到老年代中![](https://gitee.com/s420/image-bed/raw/master/img/{5E0D6513-0585-4D5F-9B9A-845F8F4EA591}.png)
 
-#### 垃圾回收机制
+## 垃圾回收机制
 
 **垃圾回收器的实现**
 
@@ -143,7 +143,9 @@
 - 垃圾指的是JVM中没有**被任何引用指向它的对象**
 - 如果不清理这些垃圾对象，他会一直占用着内存，从而不能给其他对象使用，垃圾越来越多，就会出现OOM（OutOfMermoryError）
 
-##### 垃圾标记阶段
+### 垃圾回收算法
+
+#### 垃圾标记阶段
 
 找到垃圾对象的方法：
 
@@ -156,14 +158,14 @@
   - GC Root 会”引用”对象，此对象还会应用其他对象，被引用的对象即使存活对象，**从未被引用**的对象即为垃圾对象
   - 简单来说就是，内存中 方法内 或 类 内部的一些 **静态属性/常量属性** 相关联 的对象引用 ![{845CD631-4338-4FB8-8003-2644D27B18C4}](https://gitee.com/s420/image-bed/raw/master/img/{845CD631-4338-4FB8-8003-2644D27B18C4}.png)
 
-##### 标记-清除 算法
+#### 标记-清除 算法
 
 - 当模块内存空间不够用（新生代（Eden、S0、S1）、老年代），则会暂停线程执行（STW），随后执行垃圾回收
 - 先标记找到可达对象，并进行标记；随后线性遍历，对没有标记的对象进行回收
 
 ![{E2C4440F-3E34-4183-ABD9-F1814E9E9B10}](https://gitee.com/s420/image-bed/raw/master/img/{E2C4440F-3E34-4183-ABD9-F1814E9E9B10}.png)
 
-##### 复制算法
+#### 复制算法
 
 - 核心思想：空间换时间，使用两块内存空间
 - 进行垃圾回收时，通过GC-Root直接找到科大对象，STW，随后若对象是可达的会将其复制到另一个内存空间
@@ -172,7 +174,7 @@
 
 ![{2D659506-B07C-4924-8DF4-9BF24286C718}](https://gitee.com/s420/image-bed/raw/master/img/{2D659506-B07C-4924-8DF4-9BF24286C718}.png)
 
-##### 标记整理算法
+#### 标记整理算法
 
 ![{A85A4E9E-E40C-40C3-B221-229C537A0E62}](https://gitee.com/s420/image-bed/raw/master/img/{A85A4E9E-E40C-40C3-B221-229C537A0E62}.png)
 
@@ -181,6 +183,26 @@
   - 步骤多效率低
   - 也需要改变栈帧中对 对象实例的引用
 
-##### 对比总结
+#### 对比总结
 
 ![{9838EE17-48C0-4F8D-B7E5-7FB967184DEF}](https://gitee.com/s420/image-bed/raw/master/img/{9838EE17-48C0-4F8D-B7E5-7FB967184DEF}.png)
+
+#### 分代收集算法（理念）
+
+对不同的对象采用不同的垃圾回收算法
+
+![{268C02E3-E245-44F1-9563-42909007CD57}](https://gitee.com/s420/image-bed/raw/master/img/{268C02E3-E245-44F1-9563-42909007CD57}.png)
+
+### 垃圾回收器
+
+- JDK8：默认Parallel GC
+- JDK9：默认G1
+
+![{C125AA4C-8036-43FC-B3B4-20EC9D578009}](https://gitee.com/s420/image-bed/raw/master/img/{C125AA4C-8036-43FC-B3B4-20EC9D578009}.png)
+
+#### Parllel GC & Parllel Old GC
+
+![{A8042094-6003-4E5C-9060-A6FD625A889F}](https://gitee.com/s420/image-bed/raw/master/img/{A8042094-6003-4E5C-9060-A6FD625A889F}.png)
+
+
+
