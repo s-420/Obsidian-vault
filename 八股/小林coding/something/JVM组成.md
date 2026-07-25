@@ -44,3 +44,5 @@ Tomcat为什么要加载自定义类加载器
 ---
 
 ## 运行时数据区
+
+![{00F57237-57F8-433D-9E66-074B6F0120A0}](https://gitee.com/s420/image-bed/raw/master/img/{00F57237-57F8-433D-9E66-074B6F0120A0}.png)
