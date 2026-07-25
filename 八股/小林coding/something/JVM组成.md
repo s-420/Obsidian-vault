@@ -4,6 +4,8 @@
 
 ![{60F457EA-EF79-442D-83A2-B8866765D8EA}](https://gitee.com/s420/image-bed/raw/master/img/{60F457EA-EF79-442D-83A2-B8866765D8EA}.png)
 
+工作流程：
+
 - 加载
 - 链接
   - 验证：验证待加载的class文件是否正确
@@ -11,3 +13,10 @@
   - 解析：将类的全域名解析为类在方法区中的地址
 - 初始化
   - 为变量赋实际值
+
+类加载器的分类：
+
+![{32CC683D-4B45-48D5-9A3B-8EDD232C7A9D}](https://gitee.com/s420/image-bed/raw/master/img/{32CC683D-4B45-48D5-9A3B-8EDD232C7A9D}.png)
+
+- 引导性类加载器
+- 自定义类加载器
