@@ -25,3 +25,5 @@
   - AppClassLoader:classpath 指定的类加载器（指定的jar包，target/classes）
   - WebAppClassLoader
 - 双亲委派：![](https://gitee.com/s420/image-bed/raw/master/img/{75FD171B-AD60-4E90-835D-5E1950391643}.png)
+
+​	当AppClassLoader加载类时调用loadClass方法时，他会先去调用ExtClassLoader的loadClass方法去加载当前这个类
