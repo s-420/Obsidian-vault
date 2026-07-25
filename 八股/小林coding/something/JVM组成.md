@@ -101,20 +101,16 @@
 
 ![{5963D0EA-1B6D-479B-9E05-9241A3428298}](https://gitee.com/s420/image-bed/raw/master/img/{5963D0EA-1B6D-479B-9E05-9241A3428298}.png)
 
+- ![{BAF2E5E1-0DD6-4502-AE93-81C09B443CDE}](https://gitee.com/s420/image-bed/raw/master/img/{BAF2E5E1-0DD6-4502-AE93-81C09B443CDE}.png)
+
+![{79AE29D2-C836-4221-BBE4-6F1240580077}](https://gitee.com/s420/image-bed/raw/master/img/{79AE29D2-C836-4221-BBE4-6F1240580077}.png)
+
 - 新生代：刚刚创建的一些新对象
 
 - 老年代：经过了多次垃圾回收之后仍然存在的对象
 
-  ![{BAF2E5E1-0DD6-4502-AE93-81C09B443CDE}](https://gitee.com/s420/image-bed/raw/master/img/{BAF2E5E1-0DD6-4502-AE93-81C09B443CDE}.png)
 
-![{79AE29D2-C836-4221-BBE4-6F1240580077}](https://gitee.com/s420/image-bed/raw/master/img/{79AE29D2-C836-4221-BBE4-6F1240580077}.png)
 
-- Eden：新创建的对象都会先存放在Eden区
-  - Eden区被放满后，触发YGC（新生代的垃圾回收），找到Edan区的垃圾对象（局部对象没有再使用了）
-- S0：首次被垃圾回收检验筛选过后存活下来的对象（记录被垃圾回收过一次）
-  - YGC之后，剩下的对象会被存放到S0区，并记录已经被垃圾回收检验过一次
-
-- S1：第二次被垃圾回收器校验筛选后存活下来的对象（经历过两次垃圾回收，记录被垃圾回收过两次）
-  - 后续又创建新的对象又将Eden区存满了，再次进行垃圾回收（S0区也会被垃圾回收器校验），校验通过后被存放到S1区，并记录已经被垃圾回收校验过两次
+- 被垃圾回收器校验），校验通过后被存放到S1区，并记录已经被垃圾回收校验过两次
 
 > 在YGC的过程中，没有被垃圾回收器回收的对象，不断地重复这个过程（从S0到S1，从S1到S0）
