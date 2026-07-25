@@ -76,3 +76,10 @@
 **局部变量表**
 
 - 定义：在编译时，方法中局部变量被编译到字节码文件中，栈帧中存储了局部变量表
+
+![{5811565F-E230-42BD-8FC3-9E64D3CB90B8}](https://gitee.com/s420/image-bed/raw/master/img/{5811565F-E230-42BD-8FC3-9E64D3CB90B8}.png)
+
+- bipush：将值压入操作数栈
+- istore-index：将栈底数据存入局部变量表（index处）
+- iload-index：从局部变量表中读取index处的变量值
+- iadd：加法
