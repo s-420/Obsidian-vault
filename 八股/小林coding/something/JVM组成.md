@@ -19,4 +19,8 @@
 ![{32CC683D-4B45-48D5-9A3B-8EDD232C7A9D}](https://gitee.com/s420/image-bed/raw/master/img/{32CC683D-4B45-48D5-9A3B-8EDD232C7A9D}.png)
 
 - 引导性类加载器
+  - BootStrapClassLoader：jre/lib
 - 自定义类加载器
+  - ExtClassLoader:jre/lib/ext
+  - AppClassLoader:classpath 指定的类加载器（指定的jar包，target/classes）
+  - WebAppClassLoader
