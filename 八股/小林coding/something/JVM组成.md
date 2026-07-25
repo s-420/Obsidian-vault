@@ -230,6 +230,8 @@
 
 #### G1 （Garbage-First）
 
+采用 **复制算法**
+
 将堆空间分作很多小region，分区依然存在 Eden、S0、S1、老年代，但物理上不是连续的了，逻辑上依然连续
 
 - HUmongous ：专门存储大对象的区域（对象大小超过 一个region的一半）
@@ -238,7 +240,11 @@
 
 ![{AD1F528B-500A-4A40-B4A4-3F8822FF86B5}](https://gitee.com/s420/image-bed/raw/master/img/{AD1F528B-500A-4A40-B4A4-3F8822FF86B5}.png)
 
-- 初始标记：STW，根据 GC Root 去找到直接 可用的对象
-- 并发标记：和 用户线程 一起工作 找到所有 可用对象
-- 最终标记：STW，主要是为了 标记 在并发标记中 可用态转变了的对象
-- 筛选回收：STW，
+- 初始标记：STW，根据 GC Root 去找到直接 可达的对象
+- 并发标记：和 用户线程 一起工作 找到所有 可达对象
+- 最终标记：STW，主要是为了 标记 在并发标记中 可达态转变了的对象
+- 筛选回收：STW，按照指定的时间 进行垃圾回收（回收region区块）
+  - 优先回收 垃圾对象比较多的 region
+    - 将 该region中的 可达对象 **复制** 到相邻（最近）的 region
+
+![{114738DF-88A7-4B23-ACA1-D155012012CE}](https://gitee.com/s420/image-bed/raw/master/img/{114738DF-88A7-4B23-ACA1-D155012012CE}.png)
