@@ -204,5 +204,18 @@
 
 ![{A8042094-6003-4E5C-9060-A6FD625A889F}](https://gitee.com/s420/image-bed/raw/master/img/{A8042094-6003-4E5C-9060-A6FD625A889F}.png)
 
+#### CMS GC（ConcMarkSweepGC）
 
+并发标记清除垃圾回收器（并发导致吞吐量减少）
 
+![{C357E289-5108-4D16-84F6-89C1D83E6FD3}](https://gitee.com/s420/image-bed/raw/master/img/{C357E289-5108-4D16-84F6-89C1D83E6FD3}.png)![{A0AE99B9-7796-45BB-8822-82482ED51B49}](https://gitee.com/s420/image-bed/raw/master/img/{A0AE99B9-7796-45BB-8822-82482ED51B49}.png)
+
+- 初始标记：STW，利用GC Root去找到**直接可达**的对象
+- 并发标记：与用户线程，并发标记找到**所有可达**的对象
+  - 与用户线程并发标记时，用户标记的操作可能会改变对象的 **可用状态**，可以用**三色标记法**来解决
+
+![](https://gitee.com/s420/image-bed/raw/master/img/{C96E4B61-E238-4074-933E-B4ECE5CE71FD}.png)
+
+- 重新标记：STW，解决并发标记带来的 可用**状态可能被改变**的误差 
+- 并发清理：与用户线程，并发执行，清理垃圾对象
+- 并发重置：
