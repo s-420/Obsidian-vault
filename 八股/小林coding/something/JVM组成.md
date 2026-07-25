@@ -29,6 +29,8 @@
 ​	当AppClassLoader加载类时调用loadClass方法时，他会先去调用ExtClassLoader的loadClass方法去加载当前这个类，ExtLoadClass方法也会先去让BootStreapClassBloader区加载这个类
 
 - 避免类被重复加载
+  - 当前加载的类可能已经被父加载器使用过了
 - 防止核心API被篡改
+  - 若项目中类被篡改，但还是会优先加载父类原有的方法类（原始导入的包中的类）
 
 总结，先让父类加载，找不到了再自己找，防止重复加载类
