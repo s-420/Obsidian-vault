@@ -4,7 +4,7 @@
 
 ![{60F457EA-EF79-442D-83A2-B8866765D8EA}](https://gitee.com/s420/image-bed/raw/master/img/{60F457EA-EF79-442D-83A2-B8866765D8EA}.png)
 
-工作流程：
+#### 工作流程：
 
 - 加载
 - 链接
@@ -14,7 +14,7 @@
 - 初始化
   - 为变量赋实际值
 
-类加载器的分类：
+#### 类加载器的分类：
 
 ![{32CC683D-4B45-48D5-9A3B-8EDD232C7A9D}](https://gitee.com/s420/image-bed/raw/master/img/{32CC683D-4B45-48D5-9A3B-8EDD232C7A9D}.png)
 
@@ -35,7 +35,7 @@
 
 总结，先让父类加载，找不到了再自己找，防止重复加载类
 
-Tomcat为什么要加载自定义类加载器
+#### Tomcat为什么要加载自定义类加载器
 
 ![{35856DE9-31DA-4531-9CDD-6904A11E6974}](https://gitee.com/s420/image-bed/raw/master/img/{35856DE9-31DA-4531-9CDD-6904A11E6974}.png)
 
@@ -50,3 +50,25 @@ Tomcat为什么要加载自定义类加载器
 - 线程私有：java方法栈、本地方法站、程序计数器
 
 - 线程公有：方法区、堆
+
+#### 程序计数器
+
+![{46AA3D83-D268-4AF9-BAF9-26FFBB948354}](https://gitee.com/s420/image-bed/raw/master/img/{46AA3D83-D268-4AF9-BAF9-26FFBB948354}.png)
+
+#### 虚拟机栈
+
+![{A0C1C202-C6E5-41B9-9201-1BFA80A24CB1}](https://gitee.com/s420/image-bed/raw/master/img/{A0C1C202-C6E5-41B9-9201-1BFA80A24CB1}.png)
+
+![{593C9EA9-B84E-4B94-9BDB-78B493CB4D0E}](https://gitee.com/s420/image-bed/raw/master/img/{593C9EA9-B84E-4B94-9BDB-78B493CB4D0E}.png)
+
+- 虚拟机栈会在方法执行的开始和结束，自动入栈出栈，不需要垃圾回收器回收
+- StackOverflowError：虚拟机栈空间大小已经确定，线程执行方法嵌套过多，虚拟机栈内存空间不够，放不下栈帧
+- OutOfMermoryError：线程太多，线程创建是没有足够的内存区创建虚拟机栈
+
+##### 栈帧
+
+![{F8FCDFCC-C7C7-4169-9117-7073E4695234}](https://gitee.com/s420/image-bed/raw/master/img/{F8FCDFCC-C7C7-4169-9117-7073E4695234}.png)
+
+**操作数栈**
+
+- 定义：执行字节码指令过程中用来进行计算的区域
