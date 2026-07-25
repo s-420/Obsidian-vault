@@ -26,4 +26,9 @@
   - WebAppClassLoader
 - 双亲委派：![](https://gitee.com/s420/image-bed/raw/master/img/{75FD171B-AD60-4E90-835D-5E1950391643}.png)
 
-​	当AppClassLoader加载类时调用loadClass方法时，他会先去调用ExtClassLoader的loadClass方法去加载当前这个类
+​	当AppClassLoader加载类时调用loadClass方法时，他会先去调用ExtClassLoader的loadClass方法去加载当前这个类，ExtLoadClass方法也会先去让BootStreapClassBloader区加载这个类
+
+- 避免类被重复加载
+- 防止核心API被篡改
+
+总结，先让父类加载，找不到了再自己找，防止重复加载类0
