@@ -248,3 +248,5 @@
     - 将 该region中的 可达对象 **复制** 到相邻（最近）的 region
 
 ![{114738DF-88A7-4B23-ACA1-D155012012CE}](https://gitee.com/s420/image-bed/raw/master/img/{114738DF-88A7-4B23-ACA1-D155012012CE}.png)
+
+![{003C34DF-A876-4056-A354-6164B6EE4848}](https://gitee.com/s420/image-bed/raw/master/img/{003C34DF-A876-4056-A354-6164B6EE4848}.png)
