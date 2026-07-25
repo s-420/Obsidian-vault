@@ -98,3 +98,9 @@
 ![{2EEDEA28-F93F-4BD0-94B1-8567423DEA9B}](https://gitee.com/s420/image-bed/raw/master/img/{2EEDEA28-F93F-4BD0-94B1-8567423DEA9B}.png)
 
 ![{ACA4C57C-5FC9-4B36-8026-6FF5F3027320}](https://gitee.com/s420/image-bed/raw/master/img/{ACA4C57C-5FC9-4B36-8026-6FF5F3027320}.png)
+
+![{5963D0EA-1B6D-479B-9E05-9241A3428298}](https://gitee.com/s420/image-bed/raw/master/img/{5963D0EA-1B6D-479B-9E05-9241A3428298}.png)
+
+- 新生代：刚刚创建的一些新对象
+
+- 老年代：经过了多次垃圾回收之后仍然存在的对象
