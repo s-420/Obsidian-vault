@@ -16,5 +16,9 @@ new ApplicationContext的时候，底层发生了什么
 
 通过XML或javaConfig去配置Bean，没有配置Bean，[[BeanDefinition]]没有东西可以加载。
 
-加载IOC容器的过程也可以看作创建Bean的过程。
+加载IOC容器的过程，也可以看作创建Bean的过程。
+
+![img](https://pic2.zhimg.com/v2-8bbb3cb8818039f16ee9156ae6d6ab43_1440w.jpg)
+
+#### 2.2 读取Bean到BeanDefinition
 
