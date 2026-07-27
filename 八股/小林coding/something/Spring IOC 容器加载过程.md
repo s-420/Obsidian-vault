@@ -22,3 +22,4 @@ new ApplicationContext的时候，底层发生了什么
 
 #### 2.2 读取Bean到BeanDefinition
 
+配置完毕后，会将Bean的各项参数（Class，lazy-init，scope，init）
