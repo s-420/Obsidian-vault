@@ -29,3 +29,10 @@ new ApplicationContext的时候，底层发生了什么
 不同IOC容器，读取方式不同，
 
 - ClassPathXmlAPplicationContext（读取的是XML的配置方式）
+- AnnotationConfigApplicationContext（读取的是javaconfig的配置方式）
+
+![img](https://picx.zhimg.com/v2-f38382f20e3da1553ad53c697fd497ed_1440w.jpg)
+
+##### 2.3 生产Bean
+
+生产由BeanFactory负责，通过BeanFactroy的getBean()（实际上ApplicationContext中的getBean()方法，底层是调用BeanFactroy方法）将Bean生产出来的（底层getBean()，会经历过一系列的校验，通过后 由docreateBean()来创建Bean实例）
