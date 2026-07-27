@@ -24,4 +24,8 @@ new ApplicationContext的时候，底层发生了什么
 
 配置完毕后，会将Bean的各项参数（Class，lazy-init，scope，init-method）装载到BeanDefinition中。
 
-我们可以把BeanDefiniion看作 工厂的设计图纸 ，Bean配置则是 概念的 
+我们可以把BeanDefiniion看作 **工厂的设计图纸** ，Bean配置则是 **概念的 设计点**
+
+不同IOC容器，读取方式不同，
+
+- ClassPathXmlAPplicationContext（读取的是XML的配置方式）
