@@ -36,3 +36,13 @@ new ApplicationContext的时候，底层发生了什么
 ##### 2.3 生产Bean
 
 生产由BeanFactory负责，通过BeanFactroy的getBean()（实际上ApplicationContext中的getBean()方法，底层是调用BeanFactroy方法）将Bean生产出来的（底层getBean()，会经历过一系列的校验，通过后 由docreateBean()来创建Bean实例）
+
+getBean的时候，会判断是否容器中已存在Bean。如果存在就直接返回Bean，如果没有才会去做bean的生产
+
+bean的生产过程：
+
+1. **实例化**：实例化后bena是“纯净态”，之所以叫实例化，是因为bean实例化后，里面的字段、属性都是null。
+2. 反射：通过反射将BeanDefiniton中的bean的Class，去做newInstance()，新建一个单例
+3. 工厂：生产bean的时候，根据BeanDefiniton中参数指定的的factoryMethod来创建bean，生产过程灵活，可自定义
+4. **属性赋值**：DI，自动注入。自动注入注解：@Autowired
+5. **初始化**：调用生命周期的初始化回调方法
