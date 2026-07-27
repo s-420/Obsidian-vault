@@ -46,3 +46,15 @@ bean的生产过程：
 3. 工厂：生产bean的时候，根据BeanDefiniton中参数指定的的factoryMethod来创建bean，生产过程灵活，可自定义
 4. **属性赋值**：DI，自动注入。自动注入注解：@Autowired
 5. **初始化**：调用生命周期的初始化回调方法
+
+生产出来的bean默认是单例的，会把bean放入一个static的Map（一级缓存）Key为BeanName，Value为Bean的实例
+
+**两种获取Bean的方法：**![{55937B34-7F11-4810-96CE-46E9BFEA2088}](https://gitee.com/s420/image-bed/raw/master/img/{55937B34-7F11-4810-96CE-46E9BFEA2088}.png)
+
+- 通过bean **名字** 获取 bean（大多数情况）：通过@Component、@Bean这种方式注册的bean，后续通过 getBean获取的时 只是通过 **bean的名字** ，此时IOC容器Key只是**单纯的 Bean名**
+- 通过bean **全路径名**获取bean（少数情况）：通过@Import导入的bean，通过getBean获取的时候使用**全路径名** 去获取，此时 **全路径名** 称作容器map的Key
+- 调用bean的时候 其实就是通过 Key 去获取 Vaule中 bean的实例
+
+Spring三级缓存：
+
+![img](https://pic4.zhimg.com/v2-440485306f3f78f22e6495ce354850dd_1440w.jpg)
