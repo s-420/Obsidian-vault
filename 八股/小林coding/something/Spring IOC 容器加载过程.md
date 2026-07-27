@@ -14,5 +14,5 @@ new ApplicationContext的时候，底层发生了什么
 
 ##### 2.1 配置Bean
 
-通过XML或j'a
+通过XML或javaConfig去配置Bean，没有配置Bean，[[BeanDefinition]]没有东西可以加载
 
