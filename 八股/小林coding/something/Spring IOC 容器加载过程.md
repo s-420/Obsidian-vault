@@ -22,4 +22,6 @@ new ApplicationContext的时候，底层发生了什么
 
 #### 2.2 读取Bean到BeanDefinition
 
-配置完毕后，会将Bean的各项参数（Class，lazy-init，scope，init）
+配置完毕后，会将Bean的各项参数（Class，lazy-init，scope，init-method）装载到BeanDefinition中。
+
+我们可以把BeanDefiniion看作 工厂的设计图纸 ，Bean配置则是 概念的 
