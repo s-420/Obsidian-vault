@@ -42,7 +42,7 @@ getBean的时候，会判断是否容器中已存在Bean。如果存在就直接
 bean的生产过程：
 
 1. **实例化**：实例化后bena是“纯净态”，之所以叫实例化，是因为bean实例化后，里面的字段、属性都是null。
-2. 反射：通过反射将BeanDefiniton中的bean的Class，去做newInstance()，新建一个单例
+2. 反射：通过反射将BeanDefiniton中的bean的Class，去做newInstance()，新建一个单例（纯净态）
 3. 工厂：生产bean的时候，根据BeanDefiniton中参数指定的的factoryMethod来创建bean，生产过程灵活，可自定义
 4. **属性赋值**：DI，自动注入。自动注入注解：@Autowired
 5. **初始化**：调用生命周期的初始化回调方法
@@ -55,6 +55,6 @@ bean的生产过程：
 - 通过bean **全路径名**获取bean（少数情况）：通过@Import导入的bean，通过getBean获取的时候使用**全路径名** 去获取，此时 **全路径名** 称作容器map的Key
 - 调用bean的时候 其实就是通过 Key 去获取 Vaule中 bean的实例
 
-Spring三级缓存：https://www.bilibili.com/video/BV1HwkvYmEXv?t=29.5
+Spring三级缓存：[[Spring 三级缓存]] https://www.bilibili.com/video/BV1HwkvYmEXv?t=29.5
 
 ![img](https://pic4.zhimg.com/v2-440485306f3f78f22e6495ce354850dd_1440w.jpg)
