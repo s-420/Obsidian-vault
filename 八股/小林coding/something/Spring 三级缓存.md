@@ -30,6 +30,8 @@ Spring 的三级缓存是其==底层用于解决 单例 Bean 循环依赖（Circ
 
 ## 2. 经典案例：A 和 B 互相依赖的解决流程
 
+![](https://gitee.com/s420/image-bed/raw/master/img/屏幕截图 2026-07-28 105057.png)
+
 假设 `AService` 和 `BService` 互相 `@Autowired` 对方，Spring 的解决步骤如下：
 
 ```unset
@@ -52,7 +54,7 @@ Spring 的三级缓存是其==底层用于解决 单例 Bean 循环依赖（Circ
 4. B 走到实例化：B 被 `new` 出来，同样把自己的工厂丢进三级缓存。
 5. B 注入 A：B 发现自己依赖 A，于是调用 `getBean(A)` 去寻找 A。
 6. B 触发三级缓存：
-    
+   
     - B 去一级缓存找 A，没有。
     - 去二级缓存找 A，没有。
     - 去三级缓存找到了 A 的工厂。
