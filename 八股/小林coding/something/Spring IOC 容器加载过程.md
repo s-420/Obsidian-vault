@@ -55,6 +55,6 @@ bean的生产过程：
 - 通过bean **全路径名**获取bean（少数情况）：通过@Import导入的bean，通过getBean获取的时候使用**全路径名** 去获取，此时 **全路径名** 称作容器map的Key
 - 调用bean的时候 其实就是通过 Key 去获取 Vaule中 bean的实例
 
-Spring三级缓存：
+Spring三级缓存：https://www.bilibili.com/video/BV1HwkvYmEXv?t=29.5
 
 ![img](https://pic4.zhimg.com/v2-440485306f3f78f22e6495ce354850dd_1440w.jpg)
