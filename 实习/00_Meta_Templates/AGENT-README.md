@@ -4,6 +4,9 @@ date: 2026-08-22
 status: done
 tags:
   - 实习/元数据
+tech_stack:
+  - Java
+  - SpringBoot
 ai_agent_context: "本文件是所有 AI Agent（Cline/OpenCode/MCP）读取实习知识库的入口：目录语义、frontmatter 字段语义、推荐读取顺序与协作协议"
 ---
 
@@ -59,3 +62,4 @@ AGENT-README → 受控词表.md → 目标公司/00_INDEX.md → 按 frontmatte
 
 ## Changelog
 - v1.0 (2026-08-22)：初始版本，基于实习知识库方案创建
+

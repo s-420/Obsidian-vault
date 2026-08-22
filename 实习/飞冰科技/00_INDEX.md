@@ -4,6 +4,9 @@ date: 2026-08-22
 status: done
 tags:
   - 实习/飞冰科技
+tech_stack:
+  - Java
+  - SpringBoot
 ai_agent_context: "本篇是飞冰科技公司模块的入口索引，包含公司背景与各子目录导航，AI Agent 回答该公司相关问题时先读此篇"
 ---
 
@@ -30,3 +33,4 @@ ai_agent_context: "本篇是飞冰科技公司模块的入口索引，包含公�
 
 ## Changelog
 - v1.0 (2026-08-22)：初始版本，基于实习知识库方案创建
+
