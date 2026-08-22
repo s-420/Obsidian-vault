@@ -1,0 +1,5 @@
+﻿Task10 迁移验证 08/22/2026 16:00:24
+draft/入职后初期注意事项.md = True
+draft/feibing-neo 初步了解.md = True
+入职笔记 目录 = False
+内容完整性: 入职后初期注意事项.md 4041字节(与迁移前一致)

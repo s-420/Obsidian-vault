@@ -1,0 +1,57 @@
+﻿Task12 端到端验证 08/22/2026 16:00:48
+
+=== A. 目录结构 ===
+实习\00_Meta_Templates = True
+实习\01_Methodology = True
+实习\飞冰科技\01_Daily_Logs = True
+实习\飞冰科技\02_Tech_DeepDive = True
+实习\飞冰科技\03_Business_Context = True
+实习\飞冰科技\04_Resume_Assets = True
+实习\飞冰科技\draft = True
+
+=== B. 文件清单 ===
+00_Meta_Templates/AGENT-README.md [2408B]
+00_Meta_Templates/business-context-template.md [1100B]
+00_Meta_Templates/daily-log-template.md [757B]
+00_Meta_Templates/resume-asset-template.md [918B]
+00_Meta_Templates/tech-deepdive-template.md [988B]
+00_Meta_Templates/受控词表.md [1364B]
+飞冰科技/00_INDEX.md [909B]
+实习/知识库管理指南.md [2826B]
+实习/01_Methodology/README.md [347B]
+
+=== C. frontmatter + Changelog 全检 ===
+AGENT-README.md | ai_agent_context=True | Changelog=True
+business-context-template.md | ai_agent_context=True | Changelog=True
+daily-log-template.md | ai_agent_context=True | Changelog=True
+resume-asset-template.md | ai_agent_context=True | Changelog=True
+tech-deepdive-template.md | ai_agent_context=True | Changelog=True
+受控词表.md | ai_agent_context=True | Changelog=True
+知识库管理指南.md | ai_agent_context=True | Changelog=True
+00_INDEX.md | ai_agent_context=True | Changelog=True
+
+=== D. 迁移验证 ===
+draft/入职后初期注意事项.md = True
+draft/feibing-neo = True
+入职笔记目录残留 = False
+
+=== E. 习惯规则 ===
+rules.yaml 含新规则 = True
+
+=== F. 禁止项扫描 ===
+Internship_KB 根目录 = False
+实习/Internship_KB = False
+v1/v2 副本文件 = 0
+
+=== G. 未触碰文件检查 (git status) ===
+ D "\345\256\236\344\271\240/\351\243\236\345\206\260\347\247\221\346\212\200/\345\205\245\350\201\214\347\254\224\350\256\260/feibing-neo \345\210\235\346\255\245\344\272\206\350\247\243.md"
+ D "\345\256\236\344\271\240/\351\243\236\345\206\260\347\247\221\346\212\200/\345\205\245\350\201\214\347\254\224\350\256\260/\345\205\245\350\201\214\345\220\216\345\210\235\346\234\237\346\263\250\346\204\217\344\272\213\351\241\271.md"
+?? .sisyphus/boulder.json
+?? .sisyphus/evidence/
+?? .sisyphus/plans/
+?? "\345\256\236\344\271\240/.sisyphus/"
+?? "\345\256\236\344\271\240/00_Meta_Templates/"
+?? "\345\256\236\344\271\240/01_Methodology/"
+?? "\345\256\236\344\271\240/\347\237\245\350\257\206\345\272\223\347\256\241\347\220\206\346\214\207\345\215\227.md"
+?? "\345\256\236\344\271\240/\351\243\236\345\206\260\347\247\221\346\212\200/00_INDEX.md"
+?? "\345\256\236\344\271\240/\351\243\236\345\206\260\347\247\221\346\212\200/draft/"

@@ -1,0 +1,15 @@
+﻿=== Wave1 验证 ===
+00_Meta_Templates = True
+01_Methodology = True
+飞冰科技\01_Daily_Logs = True
+飞冰科技\02_Tech_DeepDive = True
+飞冰科技\03_Business_Context = True
+飞冰科技\04_Resume_Assets = True
+飞冰科技\draft = True
+Internship_KB 禁止项 = False
+Methodology README = True
+business-context-template.md | frontmatter字段[6/6] | Changelog=True
+daily-log-template.md | frontmatter字段[6/6] | Changelog=True
+resume-asset-template.md | frontmatter字段[6/6] | Changelog=True
+tech-deepdive-template.md | frontmatter字段[6/6] | Changelog=True
+受控词表.md | frontmatter字段[5/6] | Changelog=True
