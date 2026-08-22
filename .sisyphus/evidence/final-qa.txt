@@ -1,0 +1,19 @@
+﻿========== F3 实机 QA 最终复核 08/22/2026 16:03:36 ==========
+A1 00_Meta_Templates = True
+A2 01_Methodology = True
+A3 01_Daily_Logs = True
+A4 02_Tech_DeepDive = True
+A5 03_Business_Context = True
+A6 04_Resume_Assets = True
+A7 draft = True
+A8 入职笔记已移除 = True
+B1 模板frontmatter (4/4) = True
+B2 00_INDEX frontmatter = True
+C1 模板Changelog = True
+D1 迁移-入职后初期注意事项 = True
+D2 迁移-feibing-neo = True
+D3 内容未变(4041B) = True
+E1 rules.yaml规则 = True
+F1 无Internship_KB = True
+
+===== 结果: 16/16 通过 =====
