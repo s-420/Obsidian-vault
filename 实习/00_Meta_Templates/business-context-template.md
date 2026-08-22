@@ -1,4 +1,4 @@
-﻿---
+---
 title: 业务上下文：[业务模块名]
 date: YYYY-MM-DD
 status: draft

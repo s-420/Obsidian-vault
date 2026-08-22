@@ -1,4 +1,4 @@
-﻿---
+---
 title: AGENT-README（给 AI Agent 的读取指南）
 date: 2026-08-22
 status: done

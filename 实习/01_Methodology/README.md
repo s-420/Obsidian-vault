@@ -1,4 +1,4 @@
-﻿---
+---
 title: 通用方法论区
 date: 2026-08-22
 status: done
