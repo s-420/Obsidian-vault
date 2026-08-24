@@ -57,7 +57,7 @@ skills/
 ### 2.3 目录结构设计
 
 ```
-Obsidian-vault/
+ObsidianVault/
 ├── JavaProject/              # 项目相关
 │   └── {项目名}/
 │       ├── 技术点/           # 具体知识点

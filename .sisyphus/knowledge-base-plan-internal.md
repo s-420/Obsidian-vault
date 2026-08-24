@@ -11,7 +11,7 @@
 ### 1.1 目录结构
 
 ```
-Obsidian-vault/
+ObsidianVault/
 ├── JavaProject/
 │   └── SpringAI 智能面试平台+RAG 知识库/
 │       ├── 日记/           # 项目学习日记

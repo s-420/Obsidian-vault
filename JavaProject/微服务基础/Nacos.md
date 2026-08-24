@@ -186,7 +186,7 @@ private Product getProductFromRemoteWithLoadBalance(Long productId) {
 
 #### 3.2.2 @LoadBalanced
 
-[]: D:\Code\JavaProjects\Obsidian-vault\JavaProject\微服务基础\@LoadBalanced注解原理深度解析.md
+[]: D:\ObsidianVault\JavaProject\微服务基础\@LoadBalanced注解原理深度解析.md
 
 在RestTemplate上，添加LoadBalanced来实现负载均衡
 
