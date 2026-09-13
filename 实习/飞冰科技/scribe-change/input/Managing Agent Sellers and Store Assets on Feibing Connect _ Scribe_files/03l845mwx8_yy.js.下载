@@ -1,0 +1,4 @@
+;!function(){try { var e="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof global?global:"undefined"!=typeof window?window:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&((e._debugIds|| (e._debugIds={}))[n]="bcca2e44-8570-32b4-7024-63dc3a10b59e")}catch(e){}}();
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,347890,r=>{"use strict";r.i(302576);var t=r.i(976725),o=r.i(479258),a=r.i(995320),e=r.i(837611),i=r.i(680390);r.s(["DatadogAppRouter",()=>o.DatadogAppRouter,"DatadogPagesRouter",()=>a.DatadogPagesRouter,"ErrorBoundary",()=>i.ErrorBoundary,"addNextjsError",()=>e.addNextjsError,"nextjsPlugin",()=>t.nextjsPlugin,"onRouterTransitionStart",()=>t.onRouterTransitionStart])},640841,r=>{r.n(r.i(347890))}]);
+
+//# debugId=bcca2e44-8570-32b4-7024-63dc3a10b59e

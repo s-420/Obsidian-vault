@@ -27,10 +27,12 @@ ai_agent_context: "本篇是飞冰科技公司模块的入口索引，包含公�
 - [[02_Tech_DeepDive]] - 技术专题
 - [[03_Business_Context]] - 业务逻辑与架构
 - [[04_Resume_Assets]] - STAR 简历资产
+- [[05_Career_Development]] - 职业定位、能力分析与成长路线
 - [[draft]] - 草稿箱
 
 > 笔记的 `tech_stack` / `tags` 取值请参照 `00_Meta_Templates/受控词表.md`。
 
 ## Changelog
+- v1.1 (2026-08-29)：新增职业发展目录索引，用于沉淀岗位定位、能力分析与成长路线。
 - v1.0 (2026-08-22)：初始版本，基于实习知识库方案创建
 

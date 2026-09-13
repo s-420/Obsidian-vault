@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELI5 · 2026-09-10 日志里的 5 个系统盲点</title>
+<style>
+  :root{
+    --ink:#1e293b; --muted:#64748b;
+    --green:#16a34a; --green-bg:#f0fdf4; --green-line:#bbf7d0;
+    --red:#dc2626; --red-bg:#fef2f2; --red-line:#fecaca;
+    --amber:#d97706; --amber-bg:#fffbeb; --amber-line:#fde68a;
+    --blue:#2563eb; --blue-bg:#eff6ff; --blue-line:#bfdbfe;
+    --purple:#7c3aed; --purple-bg:#f5f3ff; --purple-line:#ddd6fe;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0 auto; max-width:880px; padding:32px 20px 64px;
+    font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+    color:var(--ink); background:#f8fafc; line-height:1.6;
+  }
+  header h1{font-size:30px; margin:0 0 6px}
+  header p{color:var(--muted); margin:0 0 28px; font-size:15px}
+  section{
+    background:#fff; border:1px solid #e2e8f0; border-radius:16px;
+    padding:24px 24px 16px; margin-bottom:28px;
+    box-shadow:0 1px 3px rgba(15,23,42,.05);
+  }
+  h2{font-size:21px; margin:0 0 4px}
+  .takeaway{font-size:16px; margin:4px 0 16px}
+  .takeaway b{padding:1px 6px; border-radius:6px}
+  svg{width:100%; height:auto; display:block}
+  svg text{font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif}
+  footer{color:var(--muted); font-size:13px; margin-top:8px}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🧩 昨天日志里的 5 个系统盲点</h1>
+  <p>来源：2026-09-10 实习日志「问题分类总表」｜画给完全没接触过的人看：每张图只讲一件事</p>
+</header>
+
+<!-- ============ 1. 静默失败 ============ -->
+<section>
+  <h2>1️⃣ 负责人没进企微：链条会「悄悄」断掉</h2>
+  <p class="takeaway">建店像流水线，中途有一道门叫「负责人进企微了吗」。没进，整条线停 —— 但停的方式有两种：一种是<b style="background:var(--green-bg);color:var(--green)">大声喊出来</b>（dryRun 拦截），一种是<b style="background:var(--red-bg);color:var(--red)">一声不吭</b>（静默失败 0/11）。</p>
+  <svg viewBox="0 0 760 430">
+    <defs>
+      <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker>
+      <marker id="a1r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+      <marker id="a1g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+    </defs>
+    <!-- chain -->
+    <g font-size="15" text-anchor="middle">
+      <rect x="10" y="40" width="118" height="52" rx="10" fill="var(--blue-bg)" stroke="var(--blue-line)"/>
+      <text x="69" y="71" fill="#1e40af">建店脚本</text>
+      <line x1="128" y1="66" x2="152" y2="66" stroke="#64748b" stroke-width="2" marker-end="url(#a1)"/>
+      <rect x="154" y="40" width="118" height="52" rx="10" fill="var(--blue-bg)" stroke="var(--blue-line)"/>
+      <text x="213" y="63" fill="#1e40af">闸① 查重</text><text x="213" y="83" font-size="12" fill="var(--muted)">店已存在？拦</text>
+      <line x1="272" y1="66" x2="296" y2="66" stroke="#64748b" stroke-width="2" marker-end="url(#a1)"/>
+      <rect x="298" y="40" width="130" height="52" rx="10" fill="var(--amber-bg)" stroke="var(--amber-line)" stroke-width="2"/>
+      <text x="363" y="63" fill="#92400e" font-weight="bold">闸② 负责人</text><text x="363" y="83" font-size="12" fill="#b45309">进企微了吗？</text>
+      <line x1="428" y1="66" x2="452" y2="66" stroke="#64748b" stroke-width="2" marker-end="url(#a1)"/>
+      <rect x="454" y="40" width="118" height="52" rx="10" fill="var(--blue-bg)" stroke="var(--blue-line)"/>
+      <text x="513" y="63" fill="#1e40af">闸③ 福利群</text><text x="513" y="83" font-size="12" fill="var(--muted)">群找得到？拦</text>
+      <line x1="572" y1="66" x2="596" y2="66" stroke="#64748b" stroke-width="2" marker-end="url(#a1)"/>
+      <rect x="598" y="40" width="150" height="52" rx="10" fill="var(--green-bg)" stroke="var(--green-line)"/>
+      <text x="673" y="71" fill="var(--green)" font-weight="bold">桌台码 11/11 ✅</text>
+    </g>
+    <!-- zoom on gate 2 -->
+    <line x1="363" y1="92" x2="363" y2="140" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#a1r)"/>
+    <g font-size="15" text-anchor="middle">
+      <rect x="180" y="144" width="366" height="46" rx="10" fill="var(--red-bg)" stroke="var(--red-line)" stroke-width="2"/>
+      <text x="363" y="173" fill="var(--red)" font-weight="bold">放大镜：负责人 NOT_IN_ENTERPRISE（没进企微）</text>
+      <!-- two outcomes -->
+      <line x1="280" y1="190" x2="200" y2="236" stroke="#16a34a" stroke-width="2" marker-end="url(#a1g)"/>
+      <line x1="446" y1="190" x2="526" y2="236" stroke="#dc2626" stroke-width="2" marker-end="url(#a1r)"/>
+      <rect x="60" y="240" width="280" height="86" rx="12" fill="var(--green-bg)" stroke="var(--green-line)"/>
+      <text x="200" y="272" fill="var(--green)" font-weight="bold">先 dryRun 预检 → 大声报错 ✅</text>
+      <text x="200" y="296" font-size="13" fill="var(--muted)">店没建成，但你知道为什么</text>
+      <rect x="420" y="240" width="280" height="86" rx="12" fill="var(--red-bg)" stroke="var(--red-line)" stroke-width="2"/>
+      <text x="560" y="272" fill="var(--red)" font-weight="bold">直接执行 → 静默失败 ⚠️</text>
+      <text x="560" y="296" font-size="13" fill="var(--muted)">复制 0/11，没有任何报错</text>
+      <text x="380" y="356" font-size="14" fill="var(--red)">最吓人的不是报错，是不报错 —— 所以每道闸都要能「提前喊」</text>
+    </g>
+    <!-- lifecycle strip -->
+    <g font-size="13" text-anchor="middle">
+      <text x="30" y="404" text-anchor="start" fill="var(--muted)">成员生命周期：</text>
+      <rect x="128" y="386" width="130" height="30" rx="15" fill="#f1f5f9" stroke="#cbd5e1"/>
+      <text x="193" y="406" fill="#475569">未进企业</text>
+      <text x="286" y="406" fill="var(--muted)">→ 拉人 →</text>
+      <rect x="340" y="386" width="190" height="30" rx="15" fill="var(--amber-bg)" stroke="var(--amber-line)"/>
+      <text x="435" y="406" fill="#92400e">READY_TO_ACTIVATE</text>
+      <text x="558" y="406" fill="var(--muted)">→ 激活 →</text>
+      <rect x="600" y="386" width="130" height="30" rx="15" fill="var(--green-bg)" stroke="var(--green-line)"/>
+      <text x="665" y="406" fill="var(--green)" font-weight="bold">ACTIVATED ✅</text>
+    </g>
+  </svg>
+</section>
+
+<!-- ============ 2. 群主决定可见性 ============ -->
+<section>
+  <h2>2️⃣ 群主挂谁，决定飞冰「看不看得见」这个群</h2>
+  <p class="takeaway">飞冰互联找群，不是满屋子翻，它<b style="background:var(--blue-bg);color:var(--blue)">只翻「区域负责人的抽屉」</b>。群建得再好，群主挂成门店负责人，就等于把信投进了别人家信箱 —— 群还在，飞冰却报「查无福利群」。</p>
+  <svg viewBox="0 0 760 330">
+    <defs>
+      <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker>
+      <marker id="a2r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+      <marker id="a2g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+    </defs>
+    <g font-size="15" text-anchor="middle">
+      <rect x="20" y="110" width="190" height="90" rx="12" fill="var(--blue-bg)" stroke="var(--blue-line)" stroke-width="2"/>
+      <text x="115" y="146" fill="#1e40af" font-weight="bold">客户在企微建群</text>
+      <text x="115" y="172" font-size="13" fill="var(--muted)">要选一个「群主」</text>
+      <line x1="210" y1="132" x2="290" y2="78" stroke="#16a34a" stroke-width="2" marker-end="url(#a2g)"/>
+      <line x1="210" y1="178" x2="290" y2="234" stroke="#dc2626" stroke-width="2" marker-end="url(#a2r)"/>
+      <!-- good -->
+      <rect x="294" y="34" width="210" height="84" rx="12" fill="var(--green-bg)" stroke="var(--green-line)" stroke-width="2"/>
+      <text x="399" y="66" fill="var(--green)" font-weight="bold">群主 = 区域负责人 ✅</text>
+      <text x="399" y="92" font-size="13" fill="#166534">信投对了抽屉</text>
+      <line x1="504" y1="76" x2="560" y2="76" stroke="#16a34a" stroke-width="2" marker-end="url(#a2g)"/>
+      <rect x="564" y="34" width="176" height="84" rx="12" fill="var(--green-bg)" stroke="var(--green-line)"/>
+      <text x="652" y="68" fill="var(--green)" font-weight="bold">飞冰一找就到</text>
+      <text x="652" y="92" font-size="13" fill="#166534">建店关联成功</text>
+      <!-- bad -->
+      <rect x="294" y="196" width="210" height="84" rx="12" fill="var(--red-bg)" stroke="var(--red-line)" stroke-width="2"/>
+      <text x="399" y="228" fill="var(--red)" font-weight="bold">群主 = 门店负责人 ❌</text>
+      <text x="399" y="254" font-size="13" fill="#991b1b">信投进了别人的抽屉</text>
+      <line x1="504" y1="238" x2="560" y2="238" stroke="#dc2626" stroke-width="2" marker-end="url(#a2r)"/>
+      <rect x="564" y="196" width="176" height="84" rx="12" fill="var(--red-bg)" stroke="var(--red-line)"/>
+      <text x="652" y="226" fill="var(--red)" font-weight="bold">FAILED_NO_GROUP</text>
+      <text x="652" y="252" font-size="13" fill="#991b1b">系统：查无福利群</text>
+      <text x="380" y="316" font-size="14" fill="var(--muted)">群没有丢，只是放错了抽屉 —— 铁律：建群时群主必须挂「区域负责人」</text>
+    </g>
+  </svg>
+</section>
+
+<!-- ============ 3. 客户群 vs 群活动 ============ -->
+<section>
+  <h2>3️⃣ 「客户群」≠「群活动」：长得像，是两个东西</h2>
+  <p class="takeaway">客户说「群我建好了！」—— 他建的是<b style="background:var(--blue-bg);color:var(--blue)">聊天的房间</b>。但建店要挂的是<b style="background:var(--purple-bg);color:var(--purple)">发券的小机关</b>，机关长在飞冰后台里，内部才指向那个群。少装机关，链路就是断的。</p>
+  <svg viewBox="0 0 760 300">
+    <defs>
+      <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker>
+    </defs>
+    <g font-size="15" text-anchor="middle">
+      <rect x="20" y="50" width="270" height="150" rx="14" fill="var(--blue-bg)" stroke="var(--blue-line)" stroke-width="2"/>
+      <text x="155" y="88" font-size="30">🏠</text>
+      <text x="155" y="122" fill="#1e40af" font-weight="bold" font-size="17">企微「客户群」</text>
+      <text x="155" y="150" font-size="13" fill="var(--muted)">大家进来聊天的房间</text>
+      <text x="155" y="172" font-size="13" fill="#1e40af">客户说「建好群了」= 这个</text>
+      <!-- machine -->
+      <rect x="470" y="50" width="270" height="150" rx="14" fill="var(--purple-bg)" stroke="var(--purple-line)" stroke-width="2"/>
+      <text x="605" y="88" font-size="30">⚙️</text>
+      <text x="605" y="122" fill="var(--purple)" font-weight="bold" font-size="17">飞冰「群活动」（群公告领券）</text>
+      <text x="605" y="150" font-size="13" fill="var(--muted)">发券的小机关，长在飞冰后台</text>
+      <text x="605" y="172" font-size="13" fill="var(--purple)">进群入口 add_join_way 装在这里</text>
+      <!-- relation -->
+      <line x1="290" y1="125" x2="466" y2="125" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#a3)"/>
+      <text x="378" y="112" font-size="13" fill="var(--purple)">机关指向群</text>
+      <!-- store -->
+      <rect x="290" y="228" width="180" height="52" rx="12" fill="#f1f5f9" stroke="#cbd5e1"/>
+      <text x="380" y="260" fill="#475569" font-weight="bold">建店关联要挂的</text>
+      <path d="M380 228 L 380 210 L 605 210 L 605 204" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 4"/>
+      <text x="380" y="297" font-size="14" fill="var(--amber)">⚠️ 只有房间没有机关 = 链路不通，先问清「建的是哪个」</text>
+    </g>
+  </svg>
+</section>
+
+<!-- ============ 4. 找群三级策略 ============ -->
+<section>
+  <h2>4️⃣ 找群的三级策略：越往下越确定</h2>
+  <p class="takeaway">按店名「模糊搜」会撞上几十个同名群（江阴店 → 无锡一堆「江阴××店」）。所以规则升级成<b style="background:var(--amber-bg);color:var(--amber)">梯子</b>：模糊的少用，精确的常用，认身份证的最稳。</p>
+  <svg viewBox="0 0 760 330">
+    <defs>
+      <marker id="a4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker>
+    </defs>
+    <g font-size="15" text-anchor="middle">
+      <text x="46" y="316" font-size="13" fill="var(--muted)">越往下</text>
+      <text x="46" y="60" font-size="13" fill="var(--muted)">越确定</text>
+      <line x1="30" y1="46" x2="30" y2="300" stroke="#94a3b8" stroke-width="2" marker-end="url(#a4)"/>
+      <!-- L1 -->
+      <rect x="80" y="30" width="480" height="76" rx="12" fill="var(--red-bg)" stroke="var(--red-line)"/>
+      <text x="320" y="60" fill="var(--red)" font-weight="bold">L1 nameLike 模糊匹配 ❌</text>
+      <text x="320" y="86" font-size="13" fill="#991b1b">搜「江阴店」→ 命中无锡几十个「江阴××店」· 假阳性重灾区</text>
+      <text x="620" y="72" font-size="26">🎭</text>
+      <!-- L2 -->
+      <rect x="80" y="126" width="480" height="76" rx="12" fill="var(--amber-bg)" stroke="var(--amber-line)" stroke-width="2"/>
+      <text x="320" y="156" fill="#92400e" font-weight="bold">L2 groupKeyword 精确匹配 ✅（今天的防呆升级）</text>
+      <text x="320" y="182" font-size="13" fill="#b45309">名字一字不差才算命中 · 同名干扰被挡在门外</text>
+      <text x="620" y="168" font-size="26">🎯</text>
+      <!-- L3 -->
+      <rect x="80" y="222" width="480" height="76" rx="12" fill="var(--green-bg)" stroke="var(--green-line)" stroke-width="2"/>
+      <text x="320" y="252" fill="var(--green)" font-weight="bold">L3 groupId 钉定 ✅✅ 最稳</text>
+      <text x="320" y="278" font-size="13" fill="#166534">直接指认唯一 ID · 同名旧群再靠近也认不错人</text>
+      <text x="620" y="264" font-size="26">🔖</text>
+      <text x="380" y="322" font-size="14" fill="var(--muted)">给客户的话：能提供群 ID 就一定给 —— 一步到位，不给模糊匹配任何机会</text>
+    </g>
+  </svg>
+</section>
+
+<!-- ============ 5. 受理 ≠ 执行 ============ -->
+<section>
+  <h2>5️⃣ 批量任务：「收到了」≠「正在做」</h2>
+  <p class="takeaway">官方批量接口像<b style="background:var(--blue-bg);color:var(--blue)">投递箱</b>：投进去它会说「收到✅」，但不保证有人来取 —— 今天它停摆了，3.8 万条任务原地睡觉。兜底方案直改库，但必须自带<b style="background:var(--green-bg);color:var(--green)">后悔药</b>：先拍快照，改完留回滚文件。</p>
+  <svg viewBox="0 0 760 340">
+    <defs>
+      <marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker>
+      <marker id="a5g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/></marker>
+    </defs>
+    <g font-size="15" text-anchor="middle">
+      <!-- official path -->
+      <rect x="20" y="30" width="160" height="60" rx="12" fill="var(--blue-bg)" stroke="var(--blue-line)"/>
+      <text x="100" y="56" fill="#1e40af" font-weight="bold">提交批量任务</text>
+      <text x="100" y="78" font-size="12" fill="var(--muted)">welmsg / welmsg2</text>
+      <line x1="180" y1="60" x2="224" y2="60" stroke="#64748b" stroke-width="2" marker-end="url(#a5)"/>
+      <rect x="228" y="30" width="180" height="60" rx="12" fill="var(--green-bg)" stroke="var(--green-line)"/>
+      <text x="318" y="56" fill="var(--green)" font-weight="bold">接口：「收到✅」</text>
+      <text x="318" y="78" font-size="12" fill="var(--muted)">这只是「受理」</text>
+      <line x1="408" y1="60" x2="452" y2="60" stroke="#64748b" stroke-width="2" marker-end="url(#a5)"/>
+      <rect x="456" y="30" width="270" height="60" rx="12" fill="var(--red-bg)" stroke="var(--red-line)" stroke-width="2"/>
+      <text x="591" y="52" fill="var(--red)" font-weight="bold">任务原地睡觉 😴（当日停摆）</text>
+      <text x="591" y="76" font-size="12" fill="#991b1b">后台手工也一样卡住 · 监控盲区</text>
+      <text x="380" y="122" font-size="14" fill="var(--red)">「收到」只代表投进去了，不代表有人取件</text>
+      <!-- divider -->
+      <line x1="20" y1="146" x2="740" y2="146" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="8 6"/>
+      <text x="380" y="172" font-size="14" fill="#475569" font-weight="bold">兜底：直改库（今天 38,514 条 · 零失败的走法）</text>
+      <!-- backup path -->
+      <rect x="30" y="192" width="200" height="66" rx="12" fill="var(--amber-bg)" stroke="var(--amber-line)"/>
+      <text x="130" y="218" fill="#92400e" font-weight="bold">① 先拍快照 📸</text>
+      <text x="130" y="242" font-size="12" fill="#b45309">改前的样子存下来</text>
+      <line x1="230" y1="225" x2="274" y2="225" stroke="#16a34a" stroke-width="2" marker-end="url(#a5g)"/>
+      <rect x="278" y="192" width="200" height="66" rx="12" fill="var(--blue-bg)" stroke="var(--blue-line)"/>
+      <text x="378" y="218" fill="#1e40af" font-weight="bold">② 直改数据库 ⚡</text>
+      <text x="378" y="242" font-size="12" fill="var(--muted)">绕过停摆的接口</text>
+      <line x1="478" y1="225" x2="522" y2="225" stroke="#16a34a" stroke-width="2" marker-end="url(#a5g)"/>
+      <rect x="526" y="192" width="200" height="66" rx="12" fill="var(--green-bg)" stroke="var(--green-line)"/>
+      <text x="626" y="218" fill="var(--green)" font-weight="bold">③ 留回滚文件 ↩️</text>
+      <text x="626" y="242" font-size="12" fill="#166534">jsonl 记录：出事能退回</text>
+      <text x="380" y="308" font-size="14" fill="var(--muted)">绕官方接口可以，但「快照 + 回滚」一样都不能少 —— 这是后悔药</text>
+      <text x="380" y="332" font-size="13" fill="var(--muted)">（另：受理后多久没动静该报警？监控盲区是待解的学习方向）</text>
+    </g>
+  </svg>
+</section>
+
+<footer>
+  依据：2026-09-10 实习日志（问题分类总表 · 踩坑与排查）｜ 晋江永和店 FAILED_NO_GROUP 结论经用户校正 ｜ 2026-09-11 生成
+</footer>
+
+</body>
+</html>
